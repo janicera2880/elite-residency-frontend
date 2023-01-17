@@ -15,11 +15,12 @@ function ListingDetails({listings}) {
     bedroom={listings.bedroom}
     bathroom={listings.bathroom}
     garage={listings.garage}
+    pool={listings.pool}
     buildingsize={listings.building_size}
     lotsize={listings.lot_size}
     architecture={listings.architecture_style}
-    account={listings.account_id}
     subdivision={listings.subdivision_id}
+    account={listings.account_id}
     />
   )
 
