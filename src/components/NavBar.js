@@ -7,11 +7,11 @@ function NavBar () {
 
         <div className="navbar">
             <nav>
-                <Link to="/">All Listings</Link>
+                <Link to="/">Communities</Link>
             
-                <Link to="/Search_Listing">Find Your Home</Link>
+                <Link to="/Search_Listing">Find A Home</Link>
                
-                <Link to='/Add_Listing'>Add New Listing</Link>
+                <Link to='/Add_Listing'>List It or Lease It</Link>
 
                 <Link to="/login">Login</Link>
             </nav>
