@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../images/p3-logo.jpg"
+import Logo from "../images/rubypro.png"
 
 
 

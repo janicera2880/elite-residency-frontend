@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 
 function Login({ setIsLoggedIn }) {
-  const history = useNavigate();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -25,12 +25,13 @@ function Login({ setIsLoggedIn }) {
     setIsLoggedIn(true);
 
     
-    history.push("/");
+    navigate("/");
   }
 
   return (
     <form onSubmit={handleSubmit} className="login">
-      <h1>Please Login To Your Account</h1>
+      <h2>Account Information</h2>
+      
       <label>Account Name</label>
       <input
         type="text"
@@ -38,6 +39,7 @@ function Login({ setIsLoggedIn }) {
         value={formData.username}
         onChange={handleChange}
       />
+      
       <label>Account</label>
       <input
         type="email"
@@ -45,6 +47,7 @@ function Login({ setIsLoggedIn }) {
         value={formData.password}
         onChange={handleChange}
       />
+      
       <label>Click To Login</label>
       <button type="submit">Submit</button>
     </form>

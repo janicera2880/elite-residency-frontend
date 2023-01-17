@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color:white(235, 231, 225);
 }
 
 /* Header */
@@ -14,7 +15,68 @@ body {
   align-items:center;
   justify-content:center;
 }
+#Logo {
+  justify-content: center;
+  align-items:center;
+  width: 20%;
+  height: 20%;
+}
+/* Login */
+.login {
+  position: relative;
+  margin: 0 auto;
+  padding: 20px 20px 20px;
+  width: 310px;
+}
+.login button{
+  align-items:center;
+ 
+  width: 30%;
+  font-size: small;
+  
+}
+label {
+  font-weight:lighter;
+  display:grid;
+  align-items: center;
+}
 
-/*code { 
-  font-family:'Times New Roman', Times, serif;
-}*/
+input {
+  padding: 0.50rem;
+  border:aquamarine;
+  font-family: inherit;
+  font-size: 1.2em;
+  transition: all 0.2s;
+  width: 50%;
+}
+
+.navbar {
+ 
+  
+  overflow: hidden;
+  width: 700px;
+  margin: auto;
+  /*margin-right: auto;    
+  margin-left: auto; 
+  padding-left: 30px;
+  padding-right: 30px;*/
+
+}
+.navbar a {
+  float:inline-start;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+ 
+
+.navbar a:hover{
+
+  color: rgb(11, 51, 5);
+  background: rgb(177, 196, 135);
+}
+
+
