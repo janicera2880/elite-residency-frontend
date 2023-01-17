@@ -1,21 +1,31 @@
-import React, { useState, useEffect } from "react";
-import { Route, Routes } from 'react-router-dom';
-import Home from './Home';
-import Header from './Header';
-import NavBar from'./NavBar';
+import React, { useState} from "react";
+import { Route, Routes } from "react-router-dom"
+import Home from "./Home";
+import Header from "./Header";
+import Login from "./Login";
+
 
 function App(){
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const [listings, setListings] = useState([])
-}
+
 return (
     <div>
         
         <Header />
-        <NavBar />
+        
 
+        <Routes> 
+
+        <Route path="login"
+        element={<Login setIsLoggedIn={setIsLoggedIn}/>}/>
+
+        <Route path="/"
+        element={<Home isLoggedIn={isLoggedIn}/>}/>
+        
+      
+        </Routes>    
       </div>
-            
 )
-          
+};
 export default App;

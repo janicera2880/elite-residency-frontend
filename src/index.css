@@ -7,6 +7,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family:'Times New Roman', Times, serif;
+/* Header */
+.header {
+  text-align: center;
+  padding: 0.5rem;
+  align-items:center;
+  justify-content:center;
 }
+
+/*code { 
+  font-family:'Times New Roman', Times, serif;
+}*/

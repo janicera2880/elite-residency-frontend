@@ -1,4 +1,5 @@
 import React from "react";
+import Logo from "../images/p3-logo.jpg"
 
 
 
@@ -10,7 +11,7 @@ function Header() {
       
       
       <div className="header">
-        <h1>Elite Residency</h1>
+        <img id="Logo" src={Logo} alt="Logo"/>
       
       </div>
     
