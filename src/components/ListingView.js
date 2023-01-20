@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { Navigate } from "react-router-dom";
 import SearchListing from "./SearchListing";
-import ListingDetails from "./ListingDetails"
+import ListingInfo from "./ListingInfo"
 
-function ListingView({listings}) {
+function ListingView({listings, isLoggedIn}) {
   
     const [search, setSearch] = useState("");
+    
+    if (!isLoggedIn) return <Navigate replace to="/login" />;
        
     function handleChangeSearch(currentSearch) {
       setSearch(currentSearch)
@@ -15,7 +18,7 @@ function ListingView({listings}) {
     const shownListings = listings.filter((listing) => {
   
 
-      return listing.subdivision.toLowerCase().includes(search.toLowerCase());
+      return listing.status.toLowerCase().includes(search.toLowerCase());
     });
 
     return (
@@ -25,7 +28,7 @@ function ListingView({listings}) {
       <div className="listingview">
         <SearchListing search={search} handleChangeSearch={handleChangeSearch} />
       
-        <ListingDetails listings={shownListings}  />
+        <ListingInfo listings={shownListings}  />
       
       </div>
    

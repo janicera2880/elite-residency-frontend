@@ -2,14 +2,14 @@ import React from "react";
 import Listing from "./Listing";
 
 
-function ListingDetails({listings}) {
+function ListingInfo({listings}) {
 
-  const ListingDetails = listings.map((listings) =>
+  const ListingInfo = listings.map((listings) =>
     <Listing
     key={listings.id}
     image={listings.image_url}
     status={listings.status}
-    listprice={listing_price}
+    listprice={listings.listing_price}
     built={listings.year_built}
     storey={listings.storey}
     bedroom={listings.bedroom}
@@ -25,8 +25,8 @@ function ListingDetails({listings}) {
   )
 
   return (
-    <ul className="grid-container">{ListingDetails}</ul>
+    <ul className="grid-container">{ListingInfo}</ul>
   );
 }
 
-export default ListingDetails;
+export default ListingInfo;
