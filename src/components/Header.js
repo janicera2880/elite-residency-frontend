@@ -1,5 +1,6 @@
 import React from "react";
-import Logo from "../images/rubypro.png"
+
+import background from "../images/luxury-house-plan-44590.jpg"
 
 
 
@@ -10,8 +11,16 @@ function Header() {
     return (
       
       
-      <div className="header">
-        <img id="Logo" src={Logo} alt="Logo"/>
+      <div className="header"
+      style={{ backgroundImage: `url(${background})`,
+      height:'55vh',
+      
+        marginTop: "-50px",
+        marginBottom: "20px",
+        fontSize:'10px',
+        backgroundSize: "cover",
+        backgroundRepeat: "inherit", }}>
+       <p><span>Elite Residency</span></p>
       
       </div>
     

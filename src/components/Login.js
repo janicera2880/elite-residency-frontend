@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
+
 function Login({ setIsLoggedIn }) {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -30,9 +31,10 @@ function Login({ setIsLoggedIn }) {
 
   return (
     <form onSubmit={handleSubmit} className="login">
-      <h2>Account Information</h2>
+      <p><center><h1>Elite Residency</h1></center></p>
+      <p><center><h4>Enter Login Info Here</h4></center></p>
       
-      <label>Account Name</label>
+      <label><center>Account Name</center></label>
       <input
         type="text"
         name="username"
@@ -40,7 +42,7 @@ function Login({ setIsLoggedIn }) {
         onChange={handleChange}
       />
       
-      <label>Account</label>
+      <label><center>Email</center></label>
       <input
         type="email"
         name="email"
@@ -48,8 +50,8 @@ function Login({ setIsLoggedIn }) {
         onChange={handleChange}
       />
       
-      <label>Click To Login</label>
-      <button type="submit">Submit</button>
+      <label><center>Click To Login</center></label>
+      <button type="submit"><center>Submit</center></button>
     </form>
   );
 }
