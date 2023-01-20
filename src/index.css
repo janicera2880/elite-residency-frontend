@@ -4,7 +4,7 @@ body {
   margin: 0;
   font-family:'Mr Dafoe', serif;;
   
-  background-color:rgb(231, 207, 176);
+  background-color:rgb(192, 146, 111);
 }
 
 /* Header */
@@ -14,12 +14,7 @@ body {
   align-items:center;
   justify-content:center;
 }
-#Logo {
-  justify-content: center;
-  align-items:center;
-  width: 20%;
-  height: 20%;
-}
+
 /* Login */
 .login {
   position:center;
@@ -27,22 +22,26 @@ body {
   padding: 60px 0;
   width: 320px;
 }
+
 .login button{
   position:center;
  
   width: 105%;
   font-size: medium;
+  font-weight:bolder;
   
 }
 label {
-  font-weight:lighter;
+  font-weight:bolder;
+  font-size:larger;
   display:contents;
   align-items: center;
 }
 
 input {
+ 
   padding: 0.40rem;
-  border:rgb(212, 189, 86);
+  border:rgb(56, 62, 141);
   font-family:sans-serif;
   font-size: 1.0em;
   transition: all 0.2s;
@@ -53,29 +52,26 @@ input {
  
   
   overflow: hidden;
-  width: 700px;
+  width: 800px;
   margin: auto;
-  /*margin-right: auto;    
-  margin-left: auto; 
-  padding-left: 30px;
-  padding-right: 30px;*/
+ 
 
 }
 .navbar a {
   float:inline-start;
   color: black;
   text-align: center;
-  padding: 14px 16px;
+  padding: 16px 16px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 25px;
 }
 
  
 
 .navbar a:hover{
 
-  color: rgb(11, 51, 5);
-  background: rgb(177, 196, 135);
+  color: rgb(75, 69, 63);
+  background: rgb(233, 191, 136);
 }
 
 

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Logo from "../images/rubyproject.png"
+
 
 
 
@@ -31,10 +33,10 @@ function Login({ setIsLoggedIn }) {
 
   return (
     <form onSubmit={handleSubmit} className="login">
-      <p><center><h1>Elite Residency</h1></center></p>
-      <p><center><h4>Enter Login Info Here</h4></center></p>
+       
+      <img id="Logo" src={Logo} alt="Logo"/>
       
-      <label><center>Account Name</center></label>
+      <label><center>Username:</center></label>
       <input
         type="text"
         name="username"
@@ -42,7 +44,7 @@ function Login({ setIsLoggedIn }) {
         onChange={handleChange}
       />
       
-      <label><center>Email</center></label>
+      <label><center>Email:</center></label>
       <input
         type="email"
         name="email"
@@ -52,6 +54,7 @@ function Login({ setIsLoggedIn }) {
       
       <label><center>Click To Login</center></label>
       <button type="submit"><center>Submit</center></button>
+     
     </form>
   );
 }
