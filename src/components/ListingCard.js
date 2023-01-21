@@ -1,11 +1,16 @@
 import React, {useState} from "react";
+import { useParams, useNavigate} from "react-router-dom"
 
 
 
 function ListingCard ({listing, changePrice}){
   const {id, image, status, listPrice, yearBuilt, storey, bedroom, bathroom, garage, buildingSize, lotSize, architectureStyle, pool} = listing
   const [available, setAvailable] = useState(true)
-  const [newPrice, setPrice] = useState(listprice)
+  const [newPrice, setPrice] = useState(listPrice)
+  const {id} = useParams()
+  const navigate = useNavigate()
+  
+
 
   const handleChangeStatus = ()=>{
     setAvailable(!status)
@@ -34,7 +39,7 @@ function ListingCard ({listing, changePrice}){
             <div className="details">
               
             <input value={newPrice} onChange={onChangePrice}/>
-            <button onClick={()=>changePrice(newPrice, id)}>Update</button>
+            <button onClick={()=>changePrice(newPrice, id)}>Update List Price</button>
             {available ? (
             <button onClick={handleChangeStatus} className="availability">Continue To Show</button>
           ) : (

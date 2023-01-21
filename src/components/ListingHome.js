@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 import SearchListing from "./SearchListing";
 import ListingInfo from "./ListingInfo"
 
-function ListingView({listings, isLoggedIn}) {
+function ListingHome({listings, isLoggedIn}) {
   
     const [search, setSearch] = useState("");
     
@@ -35,5 +35,5 @@ function ListingView({listings, isLoggedIn}) {
     );
   }
   
-  export default ListingView;
+  export default ListingHome;
 
