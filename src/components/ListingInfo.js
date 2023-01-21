@@ -1,11 +1,11 @@
 import React from "react";
-import Listing from "./Listing";
+import ListingCard from "./ListingCard";
 
 
 function ListingInfo({listings}) {
 
   const ListingInfo = listings.map((listings) =>
-    <Listing
+    <ListingCard
     key={listings.id}
     image={listings.image_url}
     status={listings.status}

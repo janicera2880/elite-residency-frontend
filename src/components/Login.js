@@ -44,7 +44,7 @@ function Login({ setIsLoggedIn }) {
         onChange={handleChange}
       />
       
-      <label><center>Email:</center></label>
+      <label><br></br><center>Email:</center></label>
       <input
         type="email"
         name="email"
@@ -52,9 +52,9 @@ function Login({ setIsLoggedIn }) {
         onChange={handleChange}
       />
       
-      <label><center>Click To Login</center></label>
+      <label><br></br><center>Click To Login</center></label>
       <button type="submit"><center>Submit</center></button>
-     
+      <br></br>
     </form>
   );
 }
