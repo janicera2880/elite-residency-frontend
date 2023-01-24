@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function SubdivisionForm({addNewSubdivision}) {
-  const [newSubdivisionData, setnewSubdivisionData] = useState({
+  const [subdivisionData, setSubdivisionData] = useState({
     image:"",
     name:"",
     communityType:"",
@@ -10,32 +10,34 @@ function SubdivisionForm({addNewSubdivision}) {
 
 
   function submitAdd(event){
-    setnewSubdivisionData({
-      ...newSubdivisionData, [event.target.name]:event.target.value
+    setSubdivisionData({
+      ...subdivisionData, [event.target.name]:event.target.value
     })
   }
-
+//Handles all input values with onChange handler
   function handleAdd(event){
     event.preventDefault()
+    //console.log(subdivisionData);
 
     fetch("http://localhost:9292/subdivision", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
-        "image":newSubdivisionData.image,
-        "name":newSubdivisionData.name,
-        "community_type": newSubdivisionData.communityType,
-        "overview": newSubdivisionData.overview,
+        "image":subdivisionData.image,
+        "name":subdivisionData.name,
+        "community_type": subdivisionData.communityType,
+        "overview": subdivisionData.overview,
       })
     })
     .then(response => response.json())
     .then(addNewSubdivision)    
-    setnewSubdivisionData({
+    setSubdivisionData({
     image:"",
     name:"",
     communityType:"",
     overview:"",
     })
+    console.log(subdivisionData);
   }
   return (
     <div className="newSubdivision">
@@ -43,19 +45,19 @@ function SubdivisionForm({addNewSubdivision}) {
       <form onSubmit={handleAdd}>
         <label>
             Upload Image:
-            <input type="text" name="image" value={newSubdivisionData.image} onChange={submitAdd}/>
+            <input type="text" name="image" value={subdivisionData.image} onChange={submitAdd}/>
         </label>
         <label>
             Community Name:
-            <input type="text" name="name" value={newSubdivisionData.name} onChange={submitAdd} />
+            <input type="text" name="name" value={subdivisionData.name} onChange={submitAdd} />
         </label>
         <label>
             Community Type:
-            <input type="text" name="communityType" value={newSubdivisionData.communityType} onChange={submitAdd} />
+            <input type="text" name="communityType" value={subdivisionData.communityType} onChange={submitAdd} />
         </label>
         <label>
             Highlights/Amenities:
-            <input type="text" name="overview" value={newSubdivisionData.overview} onChange={submitAdd} />
+            <input type="text" name="overview" value={subdivisionData.overview} onChange={submitAdd} />
         </label>                
         <button type="submit">Your Community Has Been Successfully Added!</button>
       </form>
