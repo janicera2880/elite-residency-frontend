@@ -11,9 +11,9 @@ function NavBar () {
             <nav>
                 <Link to="/"><span>Communities</span></Link>
             
-                <Link to="/Search_Listing"><span>Search Listing</span></Link>
+                <Link to="/listings"><span>Buy Or Lease</span></Link>
                
-                <Link to='/Add_Listing'><span>Lease It Or List It</span></Link>
+                <Link to='/isting_form'><span>Lease It Or List It</span></Link>
 
                 <Link to="/login"><span>Login/Logout</span></Link>
             </nav>

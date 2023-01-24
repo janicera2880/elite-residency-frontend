@@ -57,7 +57,7 @@ function SubdivisionForm({addNewSubdivision}) {
             Highlights/Amenities:
             <input type="text" name="overview" value={newSubdivisionData.overview} onChange={submitAdd} />
         </label>                
-        <button type="submit">Your Form Has Been Added To Our List!</button>
+        <button type="submit">Your Community Has Been Successfully Added!</button>
       </form>
     </div>
   );
