@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { useParams, useNavigate} from "react-router-dom"
+
 
 
 
@@ -7,9 +7,8 @@ function ListingCard ({listing, changePrice}){
   const {id, image, status, listPrice, yearBuilt, storey, bedroom, bathroom, garage, buildingSize, lotSize, architectureStyle, pool} = listing
   const [available, setAvailable] = useState(true)
   const [newPrice, setPrice] = useState(listPrice)
-  const {id} = useParams()
-  const navigate = useNavigate()
   
+   
 
 
   const handleChangeStatus = ()=>{

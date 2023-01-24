@@ -1,7 +1,7 @@
 import React, { useState} from "react";
 import { Route, Routes } from "react-router-dom"
 import NavBar from "./NavBar"
-import ListingView from "./ListingView"
+import ListingHome from "./ListingHome"
 import Header from "./Header"
 import Login from "./Login"
 
@@ -22,7 +22,7 @@ return (
         element={<Login setIsLoggedIn={setIsLoggedIn}/>}/>
 
         <Route path="/"
-        element={<ListingView isLoggedIn={isLoggedIn}/>}/>
+        element={<ListingHome isLoggedIn={isLoggedIn}/>}/>
         
       
         </Routes>    
