@@ -2,7 +2,7 @@ import React from "react";
 import ListingCard from "./ListingCard";
 
 
-function ListingContainer({listings}) {
+function ListingList({listings}) {
 
   const ListingInfo = listings.map((listings) =>
     <ListingCard
@@ -29,4 +29,4 @@ function ListingContainer({listings}) {
   );
 }
 
-export default ListingContainer;
+export default ListingList;
