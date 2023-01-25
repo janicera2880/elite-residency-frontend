@@ -4,7 +4,7 @@ import React, {useState} from "react";
 
 
 function ListingCard ({listing, changePrice}){
-  const {id, image, status, listPrice, yearBuilt, storey, bedroom, bathroom, garage, buildingSize, lotSize, architectureStyle, pool} = listing
+  const {id, image, status, listPrice, yearBuilt, storey, bedroom, bathroom, garage, buildingSize, lotSize, architectureStyle, pool, subdivsion_id} = listing
   const [available, setAvailable] = useState(true)
   const [newPrice, setPrice] = useState(listPrice)
   

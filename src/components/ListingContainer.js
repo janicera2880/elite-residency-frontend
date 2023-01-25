@@ -20,7 +20,7 @@ function ListingContainer({listings}) {
     lotsize={listings.lot_size}
     architecture={listings.architecture_style}
     subdivision={listings.subdivision_id}
-    account={listings.account_id}
+    
     />
   )
 

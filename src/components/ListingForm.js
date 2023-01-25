@@ -2,8 +2,10 @@ import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 
 
-function ListingForm({onAddListings}) {
+function ListingForm({ id, onAddListings }) {
   const navigate = useNavigate();
+  const subdivisionId = parseInt(id);
+
   const [listingData, setListingData] = useState({
     image: "",
     status: "",
@@ -17,6 +19,7 @@ function ListingForm({onAddListings}) {
     lotSize: "",
     architectureStyle: "",
     pool: "",
+    subdivision_id: subdivisionId,
 
   })
 
@@ -45,10 +48,12 @@ function ListingForm({onAddListings}) {
         "lot_size": listingData.lotSize,
         "architecture_style": listingData.architectureStyle,
         "pool": listingData.pool,
+        subdivision_id: subdivisionId,
         
       })
     })
     .then(response => response.json())
+     // .then((data) => console.log(data))
     .then(onAddListings)    
     setListingData({
         image: "",
@@ -63,6 +68,8 @@ function ListingForm({onAddListings}) {
         lotSize: "",
         architectureStyle: "",
         pool: "",
+        subdivision_id: subdivisionId,
+        
     })
     navigate("/listings")
   }
