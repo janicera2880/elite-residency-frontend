@@ -10,7 +10,7 @@ function SearchListing({search, handleChangeSearch}) {
         <input
           type="text"        
           value={search}
-          placeholder="Search By Community🔍..."
+          placeholder="Search By Availability🔍..."
           
           
           onChange={(event) => handleChangeSearch(event.target.value)}

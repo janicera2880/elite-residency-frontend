@@ -32,6 +32,7 @@ function ListingCard ({listing, changePrice}){
             <p>Lot Size{lotSize}</p>
             <p>Architectural Style:{architectureStyle}</p>
             <p>Pool:{pool ? "Yes" : "No"}</p>
+            <p>subdivision_id:</p>
          
 
 
