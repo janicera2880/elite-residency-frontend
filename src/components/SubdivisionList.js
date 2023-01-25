@@ -1,11 +1,10 @@
 import React from "react";
-import SubdivisionPage from "./SubdivisionCard";
+import SubdivisionCard from "./SubdivisionCard";
 
 
-function SubdivisionContainer({subdivisions}) {
-
+function SubdivisionList({subdivisions}) {
   const SubdivisionInfo = subdivisions.map((subdivisions) =>
-    <SubdivisionPage
+    <SubdivisionCard
     key={subdivisions.id}
     image={subdivisions.image}
     communityType={subdivisions.community_type}
@@ -20,4 +19,4 @@ function SubdivisionContainer({subdivisions}) {
   );
 }
 
-export default SubdivisionContainer;
+export default SubdivisionList;

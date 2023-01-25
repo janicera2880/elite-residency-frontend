@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 
-function SubdivisionCard({name, communityType, imageUrl, overview, id}) {
+
+function SubdivisionCard({id, name, imageUrl, communityType, overview}) {
   
 
   return (
@@ -16,7 +17,7 @@ function SubdivisionCard({name, communityType, imageUrl, overview, id}) {
         <p><span style={{fontWeight: "bold"}}>Highlights/Amenities:</span> {overview}</p>
         <br></br>   
         <Link className="viewLink" to={`/listings/${id}`}>Click To View Listings</Link>   
-                 
+          
       </li>
    
    
