@@ -27,9 +27,9 @@ function SubdivisionPage({subdivisions, isLoggedIn, addNewSubdivision}) {
           
     
     <div className="subdivision-page">
-      <SearchSubdivision searchSubdivisionn={searchSubdivision} handleSearch={handleSearch} />
+      <SearchSubdivision searchSubdivision={searchSubdivision} handleSearch={handleSearch} />
     
-      <SubdivisionList listings={allSubdivision}  />
+      <SubdivisionList subdivisions={allSubdivision}  />
 
       <SubdivisionForm addNewSubdivision={addNewSubdivision} />
     

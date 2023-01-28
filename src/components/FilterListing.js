@@ -1,11 +1,11 @@
 import React from "react";
 
-function FilterListing({handleFilter}) {
+function FilterListing({handleOption}) {
 
     return (    
         <div className="filter-listing">
           <label>Filter By Architectural Design...</label>        
-          <select name="filter" onChange={handleFilter} >
+          <select name="filter" onChange={handleOption} >
             <option value="All">All</option>
             <option value="Contemporary">Contemporary</option>
             <option value="Condominium">Condominium</option>

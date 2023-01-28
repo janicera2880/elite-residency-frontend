@@ -40,7 +40,7 @@ function SubdivisionForm({addNewSubdivision}) {
     console.log(subdivisionData);
   }
   return (
-    <div className="newSubdivision">
+    <div className="subdivision-form">
       <h2>Be A Part Of Our Growing Community!</h2>
       <form onSubmit={handleAdd}>
         <label>

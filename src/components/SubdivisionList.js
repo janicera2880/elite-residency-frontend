@@ -15,7 +15,7 @@ function SubdivisionList({subdivisions}) {
   )
 
   return (
-    <ul className="grid-container">{SubdivisionInfo}</ul>
+    <ul className="grid-subdivision">{SubdivisionInfo}</ul>
   );
 }
 

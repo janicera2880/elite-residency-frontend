@@ -20,8 +20,7 @@ function Header() {
         fontSize:'10px',
         backgroundSize: "cover",
         backgroundRepeat: "inherit", }}>
-       <p><span>Elite Residency</span></p>
-      
+       
       </div>
     
   );
