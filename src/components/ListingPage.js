@@ -15,7 +15,7 @@ function ListingPage ({listings}) {
           return true;
 
         } else {
-          return listing.architecture_style === filterBy;
+          return listing.architectureStyle === filterBy;
           
         }
         

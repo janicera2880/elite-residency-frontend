@@ -5,6 +5,7 @@ import SubdivisionPage from "./SubdivisionPage";
 import Header from "./Header";
 import Login from "./Login";
 import ListingForm from "./ListingForm";
+import ListingPage from "./ListingPage";
 
 
 function App(){
@@ -42,6 +43,9 @@ return (
 
         <Route path="login"
         element={<Login setIsLoggedIn={setIsLoggedIn}/>}/>
+
+        <Route path="listings"
+        element={<ListingPage listings={listingToShow} handleOption={handleOption}/>}/>      
 
         <Route path="listing_form"
         element={<ListingForm onAddListings={onAddListings}/>}/>
