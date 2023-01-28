@@ -1,9 +1,10 @@
 import React, { useState} from "react";
-import { Route, Routes } from "react-router-dom"
-import NavBar from "./NavBar"
-import SubdivisionPage from "./SubdivisionPage"
-import Header from "./Header"
-import Login from "./Login"
+import { Route, Routes } from "react-router-dom";
+import NavBar from "./NavBar";
+import SubdivisionPage from "./SubdivisionPage";
+import Header from "./Header";
+import Login from "./Login";
+import ListingForm from "./ListingForm";
 
 
 function App(){
@@ -21,8 +22,11 @@ return (
         <Route path="login"
         element={<Login setIsLoggedIn={setIsLoggedIn}/>}/>
 
-        <Route path="/"
-        element={<SubdivisionPage isLoggedIn={isLoggedIn}/>}/>
+        <Route path="listing_form"
+        element={<ListingForm setIsLoggedIn={setIsLoggedIn}/>}/>
+
+        <Route path="/*"
+        element={<SubdivisionPage onAddListings={onAddListings} isLoggedIn={isLoggedIn}/>}/>
         
       
         </Routes>    
