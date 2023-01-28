@@ -1,34 +1,40 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import { useParams, useNavigate} from "react-router-dom"
 
 function EditListing({ listing, changePrice, onDeleteListing }) {
-    const [update, triggerUpdate] = useState(false)
+        const [newListPrice, setListPrice] = useState("")
 
-    const onChangePrice = (data, id) => {
-        fetch(`http://localhost:6001/plants/${id}`,{
+
+    const { id } = useParams()
+    const navigate = useNavigate()
+
+    const onChangePrice = (listPrice, id) => {
+        fetch(`http://localhost:9292/listings/${id}`,{
           method:'PATCH',
           headers:{
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({'listPrice':data})
+          body: JSON.stringify({'listPrice':listPrice})
         })
-        .then(triggerUpdate(!update))
+        .then(setListPrice(listPrice))
+        navigate("/listings")
       }
   
     function handleDeleteClick(){
-      fetch(`http://localhost:4000/items/${listing.id}`,{
+      fetch(`http://localhost:9292/listings/${listing.id}`,{
         method: "DELETE"
       })
       .then(r=>r.json())
-      .then(()=>onDeleteListing(listing))
+      .then((deletedListing)=>onDeleteListing(deletedListing))
+      navigate("/listings")
     }
   
     return (
         <li className="edit-card">
         <span className="listPrice">{listing.listPrice}</span>
-        <input value={newPrice} onChange={onChangePrice}/>
+        <input value={newListPrice} onChange={onChangePrice}/>
 
-      <button onClick={()=>changePrice(newPrice, id)}>Update Listing Price</button>
+        <button onClick={()=>changePrice(newListPrice, id)}>Update Listing Price</button>
         <button className="remove" onClick={handleDeleteClick}>Delete Listing</button>
       </li>
     );

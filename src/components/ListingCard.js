@@ -1,19 +1,12 @@
-import React, {useState} from "react";
-
+import React from "react";
+import { Link } from "react-router-dom";
 
 
 function ListingCard ({listings}){
   const {id, image, status, listPrice, yearBuilt, storey, bedroom, bathroom, garage, buildingSize, lotSize, architectureStyle, pool} = listings
  
  
-  
-   
 
-
-  const handleChangeStatus = ()=>{
-    setAvailable(!status)
-  }
- 
     return(
       <div className="grid-item">
             <img src={image} width="600" height="300" alt={image}/>

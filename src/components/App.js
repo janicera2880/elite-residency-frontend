@@ -6,6 +6,7 @@ import Header from "./Header";
 import Login from "./Login";
 import ListingForm from "./ListingForm";
 import ListingPage from "./ListingPage";
+import EditListing from "./EditListing";
 
 
 function App(){
@@ -31,6 +32,10 @@ function App(){
     setAllSubdivision(addedSubdivision)
    
   } 
+  function handleDeleteListing(deletedListing){
+    const updatedListing = listings.filter((listing)=>listing.id!==deletedListing.id)
+    setListings(updatedListing)
+  }
 
 
 return (
@@ -45,10 +50,15 @@ return (
         element={<Login setIsLoggedIn={setIsLoggedIn}/>}/>
 
         <Route path="listings"
-        element={<ListingPage listings={listingToShow} handleOption={handleOption}/>}/>      
+        element={<ListingPage listings={listings}/>}/>      
 
         <Route path="listing_form"
         element={<ListingForm onAddListings={onAddListings}/>}/>
+
+        <Route 
+              path="listings/:id" 
+        element={<EditListing  onDeleteListing={handleDeleteListing} />}/>            
+            
 
         <Route path="/*"
         element={<SubdivisionPage allSubdivision={allSubdivision} addNewSubdivision={addNewSubdivision} isLoggedIn={isLoggedIn}/>}/>
