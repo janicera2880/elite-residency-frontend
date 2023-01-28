@@ -10,8 +10,8 @@ import ListingPage from "./ListingPage";
 
 function App(){
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [listings, setListings] = useState([])
-  const [allSubdivision, setAllSubdivision] = useState([])
+  const [listings, setListings] = useState([]);
+  const [allSubdivision, setAllSubdivision] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:9292/listings")

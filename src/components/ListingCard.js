@@ -4,7 +4,7 @@ import React, {useState} from "react";
 
 function ListingCard ({listings}){
   const {id, image, status, listPrice, yearBuilt, storey, bedroom, bathroom, garage, buildingSize, lotSize, architectureStyle, pool} = listings
-  const [available, setAvailable] = useState(true)
+ 
  
   
    
@@ -37,11 +37,6 @@ function ListingCard ({listings}){
               
            
           
-            {available ? (
-            <button onClick={handleChangeStatus} className="availability">Continue To Show</button>
-          ) : (
-            <button onClick={handleChangeStatus}>Sold</button>
-          )}
           <Link to={`/listings/${id}`}>Click To Update Listing!</Link>  
         </div>
       </div>  
