@@ -9,7 +9,7 @@ function NavBar () {
 
         <div className="navbar">
             <nav>
-                <Link to="/"><span>Communities</span></Link>
+                <Link to="/"><span>Community Search</span></Link>
             
                 <Link to="/listings"><span>Buy Or Lease</span></Link>
                

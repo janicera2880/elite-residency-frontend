@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Navigate } from "react-router-dom";
 import SubdivisionForm from "./SubdivisionForm";
 import SubdivisionList from "./SubdivisionList";
@@ -27,12 +27,14 @@ function SubdivisionPage({subdivisions, isLoggedIn, addNewSubdivision}) {
           
     
     <div className="subdivision-page">
-      <SearchSubdivision search={search} handleSearch={handleSearch} />
+      <SearchSubdivision searchSubdivisionn={searchSubdivision} handleSearch={handleSearch} />
     
       <SubdivisionList listings={allSubdivision}  />
 
       <SubdivisionForm addNewSubdivision={addNewSubdivision} />
     
     </div>
+  );
 }
+
   export default SubdivisionPage;

@@ -3,10 +3,10 @@ import React, {useState} from "react";
 
 
 
-function ListingCard ({listing, changePrice}){
-  const {id, image, status, listPrice, yearBuilt, storey, bedroom, bathroom, garage, buildingSize, lotSize, architectureStyle, pool, subdivsion_id} = listing
+function ListingCard ({listings, changeListPrice, deleteListing}){
+  const {id, image, status, listPrice, yearBuilt, storey, bedroom, bathroom, garage, buildingSize, lotSize, architectureStyle, pool} = listings
   const [available, setAvailable] = useState(true)
-  const [newPrice, setPrice] = useState(listPrice)
+  const [newListPrice, setNewListPrice] = useState(listPrice)
   
    
 
@@ -14,8 +14,8 @@ function ListingCard ({listing, changePrice}){
   const handleChangeStatus = ()=>{
     setAvailable(!status)
   }
-  const onChangePrice = e => {
-    setPrice(()=> e.target.value)
+  const onUpdatedPrice = e => {
+    setNewListPrice(()=> e.target.value)
   }
 
     return(
@@ -36,10 +36,10 @@ function ListingCard ({listing, changePrice}){
          
 
 
-            <div className="details">
+            <div className="details-listing">
               
-            <input value={newPrice} onChange={onChangePrice}/>
-            <button onClick={()=>changePrice(newPrice, id)}>Update List Price</button>
+            <input value={newListPrice} onChange={onUpdatedPrice}/>
+            <button onClick={()=>changeListPrice(newListPrice, id)}>Update List Price</button>
             {available ? (
             <button onClick={handleChangeStatus} className="availability">Continue To Show</button>
           ) : (
