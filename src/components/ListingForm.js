@@ -74,8 +74,8 @@ function ListingForm({ id, onAddListings }) {
     navigate("/listings")
   }
   return (
-    <div className="newProperty">
-      <h4>Sell Your Property With Us</h4>
+    <div className="form">
+      <h2><center>Sell Your Property With Us</center></h2>
       <form onSubmit= {handleSubmit}>
         <br></br>
 <label>
@@ -146,7 +146,7 @@ Image:
 <br></br>
 <label>
     Pool:
-        <input type="number" name="pool" placeholder="Pool" value = {listingData.pool} 
+        <input type="text" name="pool" placeholder="Pool" value = {listingData.pool} 
         onChange={handleForm} />
 </label>
 <br></br>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
 
@@ -9,13 +9,13 @@ function NavBar () {
 
         <div className="navbar">
             <nav>
-                <Link to="/"><span>About Us</span></Link>
+                <NavLink to="/"className="nav-button">About Us</NavLink>
 
-                <Link to="/subdivisions"><span>Community Search</span></Link>
+                <NavLink to="/subdivisions" className="nav-button">Community Search</NavLink>
             
-                <Link to="/listings"><span>Find A Home</span></Link>
+                <NavLink to="/listings" className="nav-button">Find A Home</NavLink>
                
-                <Link to='/listing_form'><span>Sell Your Property</span></Link>
+                <NavLink to="/listing_form" className="nav-button">Sell Your Property</NavLink>
 
                 
             </nav>

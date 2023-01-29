@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from "react";
 import { Route, Routes } from "react-router-dom";
 import NavBar from "./NavBar";
-import SubdivisionPage from "./SubdivisionPage";
+import SubdivisionList from "./SubdivisionList";
 import Header from "./Header";
 import ListingForm from "./ListingForm";
 import ListingPage from "./ListingPage";
@@ -11,7 +11,7 @@ import Home from "./Home";
 function App(){
  
   const [listings, setListings] = useState([]);
-  const [allSubdivision, setAllSubdivision] = useState([]);
+  
 
   useEffect(() => {
     fetch("http://localhost:9292/listings")
@@ -26,11 +26,7 @@ function App(){
     setListings(addedListings)
    
   }
-  function addNewSubdivision(newSubdivision){  
-    const addedSubdivision = [...allSubdivision, newSubdivision]
-    setAllSubdivision(addedSubdivision)
-   
-  } 
+  
   function handleDeleteListing(deletedListing){
     const updatedListing = listings.filter((listing)=>listing.id!==deletedListing.id)
     setListings(updatedListing)
@@ -46,7 +42,7 @@ return (
         <Routes> 
 
         <Route path="/subdivisions"
-        element={<SubdivisionPage allSubdivision={allSubdivision} addNewSubdivision={addNewSubdivision}/>}/>
+        element={<SubdivisionList addNewSubdivision={addNewSubdivision}/>}/>
         
 
         <Route path="listings"

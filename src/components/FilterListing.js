@@ -3,9 +3,9 @@ import React from "react";
 function FilterListing({handleOption}) {
 
     return (    
-        <div className="filter-listing">
-          <label>Filter By Architectural Design...</label>        
-          <select name="filter" onChange={handleOption} >
+        <div className="filter">
+          <label>Filter By Design</label>        
+            <select name="filter" onChange={handleOption} >
             <option value="All">All</option>
             <option value="Contemporary">Contemporary</option>
             <option value="Condominium">Condominium</option>
@@ -18,7 +18,7 @@ function FilterListing({handleOption}) {
             <option value="Modern Traditional">Spanish Modern</option>
             <option value="Tuscan">Tuscan</option>
             </select>
-            </div>
+          </div>
   );
 
 }
