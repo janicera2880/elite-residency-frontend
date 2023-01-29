@@ -7,7 +7,7 @@ function Home() {
  
   
   return (
-    <div>
+    <div className='home'>
     
     <img id="logo" src={Logo} alt="logo" width="100" height="200" className="center"/>
     <h2><center>Find it. Tour it. Own it.</center></h2>
