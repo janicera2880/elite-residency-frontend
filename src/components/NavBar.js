@@ -9,13 +9,13 @@ function NavBar () {
 
         <div className="navbar">
             <nav>
-                <Link to="/"><span>Community Search</span></Link>
+                <Link to="/"><span>About Us</span></Link>
             
-                <Link to="/listings"><span>Buy Or Lease</span></Link>
+                <Link to="/listings"><span>Find A Home</span></Link>
                
-                <Link to='/isting_form'><span>Lease It Or List It</span></Link>
+                <Link to='/listing_form'><span>Sell Your Property</span></Link>
 
-                <Link to="/login"><span>Login/Logout</span></Link>
+                <Link to="/subdivisions"><span>Community Search</span></Link>
             </nav>
         </div>
     )

@@ -3,14 +3,13 @@ import { Route, Routes } from "react-router-dom";
 import NavBar from "./NavBar";
 import SubdivisionPage from "./SubdivisionPage";
 import Header from "./Header";
-import Login from "./Login";
 import ListingForm from "./ListingForm";
 import ListingPage from "./ListingPage";
 import EditListing from "./EditListing";
-
+import Home from "./Home";
 
 function App(){
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+ 
   const [listings, setListings] = useState([]);
   const [allSubdivision, setAllSubdivision] = useState([]);
 
@@ -46,8 +45,9 @@ return (
 
         <Routes> 
 
-        <Route path="login"
-        element={<Login setIsLoggedIn={setIsLoggedIn}/>}/>
+        <Route path="/subdivisions"
+        element={<SubdivisionPage allSubdivision={allSubdivision} addNewSubdivision={addNewSubdivision}/>}/>
+        
 
         <Route path="listings"
         element={<ListingPage listings={listings}/>}/>      
@@ -57,13 +57,11 @@ return (
 
         <Route 
               path="listings/:id" 
-        element={<EditListing  onDeleteListing={handleDeleteListing} />}/>            
+        element={<EditListing  onDeleteListing={handleDeleteListing} />}/>
+        <Route 
+              path="/*" 
+              element={<Home />}/>            
             
-
-        <Route path="/*"
-        element={<SubdivisionPage allSubdivision={allSubdivision} addNewSubdivision={addNewSubdivision} isLoggedIn={isLoggedIn}/>}/>
-        
-      
         </Routes>    
       </div>
 )
