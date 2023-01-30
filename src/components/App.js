@@ -4,51 +4,48 @@ import NavBar from "./NavBar";
 import SubdivisionList from "./SubdivisionList";
 import Header from "./Header";
 import ListingForm from "./ListingForm";
-import ListingPage from "./ListingPage";
-import EditListing from "./EditListing";
+import ListingList from "./ListingList";
 import Home from "./Home";
 
 function App(){
  
-  const [listings, setListings] = useState([]);
+  const [listingData, setListingData] = useState([]);
  
 
   useEffect(() => {
     fetch("http://localhost:9292/listings")
     .then(response => response.json())
-    .then(data => setListings(data))
+    .then(data => setListingData(data))
     
   }, [])
   
 
-  function onAddListings(newListings){  
-    const addedListings = [...listings, newListings]
-    setListings(addedListings)
+  function handleNewListing(newListing){  
+    setListingData([...listingData, newListing])
    
   }
 
-  function handleUpdatedListing(newListings){
-    const updatedListing = ListingData.map((listings) => {
-      if (listings.id === newListings.id){
-        return newListings
+  function onUpdateProperty(newListing){
+    const updatedListing = listingData.map((listing) => {
+      if (listing.id === newListing.id){
+        return newListing
       } else {
-        return listings
+        return listing
       }
     })
-    setListings(updatedListing)
+    setListingData(updatedListing)
   }
   
-  function onDeleteProperty(){
-    cfetch(`http://localhost:9292/listings/${id}`, { 
-      method: 'DELETE',
-    })
-    .then((r) => r.json())
-    .then((deletedEvent) => handleDeleteEvent(deletedEvent))
+  function onDeleteProperty(deletedListingData){
+    const listingDeleted = listingData.filter((listing) => {
+      if (listing.id !== deletedListingData.id) {
+        return listing
+      } else {
+        return null
+      }
+    });
+    setListingData(listingDeleted);
   }
-  const updatedListing = listings.filter((listing) => listing.id !== id)
-  setListings(updatedListing)
-  
-
 return (
     <div>
         
@@ -58,18 +55,16 @@ return (
         <Routes> 
 
         <Route path="/subdivisions"
-        element={<SubdivisionList addNewSubdivision={addNewSubdivision}/>}/>
+        element={<SubdivisionList />}/>
         
 
         <Route path="listings"
-        element={<ListingPage onUpdate={handleUpdatedListing} onDeleteProperty={onDeleteProperty}/>}/>      
+        element={<ListingList onUpdate={onUpdateProperty} onDelete={ onDeleteProperty}/>}/>      
 
         <Route path="listing_form"
-        element={<ListingForm newListings={onAddListings}/>}/>
+        element={<ListingForm newListing={handleNewListing}/>}/>
 
-        <Route 
-              path="listings/:id" 
-        element={<EditListing  onDeleteListing={handleDeleteListing} />}/>
+        
         <Route 
               path="/*" 
               element={<Home />}/>            

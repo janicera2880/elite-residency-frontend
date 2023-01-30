@@ -1,42 +1,63 @@
 import React, {useState} from "react";
-import { useParams, useNavigate} from "react-router-dom"
-
-function EditListing({ listing, changePrice, onDeleteListing }) {
-        const [newListPrice, setListPrice] = useState("")
 
 
-    const { id } = useParams()
-    const navigate = useNavigate()
 
-    const onChangePrice = (listPrice, id) => {
-        fetch(`http://localhost:9292/listings/${id}`,{
-          method:'PATCH',
-          headers:{
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({'listPrice':listPrice})
-        })
-        .then(setListPrice(listPrice))
-        navigate("/listings")
-      }
+function EditListing({ listingData, setIsChange, onUpdateProperty }) {
+  const {id, listPrice, status} = listingData
+  const [newListPrice, setnewListPrice] = useState(listPrice);
+  const [newStatus, setNewStatus] = useState(true)
   
-    function handleDeleteClick(){
-      fetch(`http://localhost:9292/listings/${listing.id}`,{
-        method: "DELETE"
-      })
-      .then(r=>r.json())
-      .then((deletedListing)=>onDeleteListing(deletedListing))
-      navigate("/listings")
-    }
+
+  function handlePriceChange(e){
+    setnewListPrice(e.target.value)
+}
+function statusHandle(){
+  setNewStatus(!newStatus)
+}
+
+        function handleSubmit(event){
+          event.preventDefault()
+
+          fetch(`http://localhost:9292/listings/${id}`, {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              listPrice: newListPrice,
+              status: status
+            })
+            })
+            .then((r) => r.json())
+            .then((updatedListing) => onUpdateProperty(updatedListing))
+            .then(() => setIsChange(false));
+          }
+  
+    
   
     return (
-        <li className="edit-card">
-        <span className="listPrice">{listing.listPrice}</span>
-        <input value={newListPrice} onChange={onChangePrice}/>
+      <form className="edit-listing" onSubmit={handleSubmit}>
+        <input 
+          type="number" 
+          name="Update List Price" 
+          step="0.01" 
+          value={newListPrice} 
+          onChange={(e) => handlePriceChange(parseFloat(e.target.value))}
+          placeholder="List Price" />
+        <button type="submit">Updated List Price</button>
 
-        <button onClick={()=>changePrice(newListPrice, id)}>Update Listing Price</button>
-        <button className="remove" onClick={handleDeleteClick}>Delete Listing</button>
-      </li>
+        <label className="form-label" htmlFor="status">Status: </label>
+        <input 
+        name="status"
+        type="text"
+        placeholder="Change Status"
+        value={newStatus}
+        onChange={statusHandle}/>
+        <button type="submit">Change To Sold!</button>
+       
+
+       
+      </form>
     );
   }
   

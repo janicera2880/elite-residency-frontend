@@ -176,8 +176,15 @@ option:hover{
   font-size: 20px;
   text-align: center;
 }
-
+.grid-item:hover{
+  box-shadow: 5px 5px #ffca74;
+}
 .grid-item img {
   width: 100%;
   border: 85x solid rgb(46, 42, 34);
+}
+html{
+  background-color: #FEF7EC ;
+  padding: 0 auto;
+  margin: 0px auto;
 }
