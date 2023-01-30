@@ -1,37 +1,58 @@
-import React from "react";
+import React, {useState} from "react";
 
+function ListingCard({listing, onDeleteProperty, onUpdateProperty}) {
 
+  const {id, image, status, listPrice, storey, bedroom, bathroom, architecturalStyle, pool} = listing
+  const [availability, setAvailability] = useState(true)
+  const [newListPrice, setnewListPrice] = useState(listPrice)
 
-function ListingCard ({image, status, list_price, year_built, storey, bedroom, bathroom, garage, building_size, lot_size, architecture_style, pool}){
-  
+  function availabilityHandle(){
+    setAvailability(!availability)
+  }
 
-    return(
-      <div className="grid-item">
-            <img src={image} width="600" height="300" alt={image}/>
-        
-            <p>🔑Status:{status ? "True" : "False"}</p>
-            <p>💰List Price:{list_price}</p>
-            <p>🏗️Year Built:{year_built}</p>
-            <p>🏢Storey:{storey}</p>
-            <p>🛌Bedroom:{bedroom}</p>
-            <p>🛁Bathroom:{bathroom}</p>
-            <p>🏣Garage:{garage}</p>
-            <p>🧱Building Size:{building_size}</p>
-            <p>🏕️Lot Size{lot_size}</p>
-            <p>🏠Architectural Style:{architecture_style}</p>
-            <p>🌊Pool:{pool ? "Yes" : "No"}</p>
-           
-         
+  function handleDelete(){
+    onDeleteProperty(id)
+  }
 
+  function submitHandle(event){
+    event.preventDefault()
+    fetch(`http://localhost:9292/listings/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({"listPrice": newListPrice})
+      })
+      .then((r) => r.json())
+      .then(onUpdateProperty)
+    }
 
-            <div className="grid-item">
-              
-           
-          
-          
-        </div>
-      </div>  
-       
-    );
+  return (
+    <li className="listcard">
+      <img src={image} />
+      
+      <h3>🏣Storey: {storey}|</h3><h3>🛌Bed:{bedroom}|</h3><h3>🛁Bath{bathroom}</h3>
+      <h3>🏠Architectural Style: {architecturalStyle}|</h3><h3>🌊Pool: {pool ? "Yes" : "No"}|</h3><h3>🛁Bath{bathroom}</h3>
+      <p>List Price: 💰{listPrice}</p>
+      <h4>Open To Show : {status}</h4>
+      {availability ? (
+        <button onClick={availabilityHandle} className="available">Continue To Show</button>
+      ) : (
+        <button onClick={availabilityHandle}>Inactive</button>
+      )}
+      <button onClick={handleDelete} className="inactive">Delete</button>
+      <form onSubmit={submitHandle}>
+        <input 
+          type="number" 
+          name="price" 
+          step="0.01" 
+          value={newListPrice} 
+          onChange={(e) => setnewListPrice(parseFloat(e.target.value))}
+          placeholder="List Price" />
+        <button type="submit">Updated List Price</button>
+      </form>
+    </li>
+  );
 }
+
 export default ListingCard;
