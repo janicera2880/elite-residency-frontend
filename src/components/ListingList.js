@@ -1,20 +1,37 @@
-import React from "react";
+import React, {useState} from "react";
 import ListingCard from "./ListingCard";
+import Search from "./Search";
 
 
 function ListingList({listingData, onDeleteProperty, onUpdateProperty}) {
 
-  const ListingDetails = listingData.map((listings) =>
-    <ListingCard
-    key={listings.id}
-    listings={listings} 
-    onDeleteProperty={onDeleteProperty} 
-    onUpdateProperty={onUpdateProperty}
-    />
-  )
+
+  const [search, setSearch] = useState("")
+
+  function handleSearch(currentSearch) {
+    setSearch(currentSearch)
+  
+  }
+
+  const shownListings = listingData.filter((listing) => {
+  
+
+    return listing.architecturalStyle.toLowerCase().includes(search.toLowerCase())
+  });
+ 
+ 
 
   return (
-    <ul className="grid-container">{ListingDetails}</ul>
+    <main>
+      <Search search={search} handleSearch={handleSearch} />
+      <ListingCard
+      key={listingData.id}
+      listings={shownListings} 
+      onDeleteProperty={onDeleteProperty} 
+      onUpdateProperty={onUpdateProperty}
+    />
+   </main>
+     
   );
 }
 

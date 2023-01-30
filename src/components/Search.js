@@ -2,15 +2,16 @@ import React from "react";
 
 
 
-function SearchSubdivision({search, handleSearch}) {
+function Search({search, handleSearch}) {
   
     return (
-      <div className="search-subdivision">
+      <div className="search-container">
        
         <input
+          className="search-bar"
           type="text"        
           value={search}
-          placeholder="Search by Subdivision Name🔍..."
+          placeholder="Search by Design🔍..."
           
           
           onChange={(event) => handleSearch(event.target.value)}
@@ -18,4 +19,4 @@ function SearchSubdivision({search, handleSearch}) {
       </div>
     );
   }
-export default SearchSubdivision;
+export default Search;

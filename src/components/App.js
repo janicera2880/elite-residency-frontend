@@ -4,7 +4,7 @@ import NavBar from "./NavBar";
 import SubdivisionList from "./SubdivisionList";
 import Header from "./Header";
 import ListingForm from "./ListingForm";
-import ListingList from "./ListingList";
+import ListingPage from "./ListingPage";
 import Home from "./Home";
 
 function App(){
@@ -59,7 +59,7 @@ return (
         
 
         <Route path="listings"
-        element={<ListingList onUpdate={onUpdateProperty} onDelete={ onDeleteProperty}/>}/>      
+        element={<ListingPage  data={listingData} onUpdate={onUpdateProperty} onDelete={ onDeleteProperty}/>}/>      
 
         <Route path="listing_form"
         element={<ListingForm newListing={handleNewListing}/>}/>
