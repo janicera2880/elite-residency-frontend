@@ -11,7 +11,7 @@ import Home from "./Home";
 function App(){
  
   const [listings, setListings] = useState([]);
-  
+ 
 
   useEffect(() => {
     fetch("http://localhost:9292/listings")
@@ -26,12 +26,28 @@ function App(){
     setListings(addedListings)
    
   }
-  
-  function handleDeleteListing(deletedListing){
-    const updatedListing = listings.filter((listing)=>listing.id!==deletedListing.id)
+
+  function handleUpdatedListing(newListings){
+    const updatedListing = ListingData.map((listings) => {
+      if (listings.id === newListings.id){
+        return newListings
+      } else {
+        return listings
+      }
+    })
     setListings(updatedListing)
   }
-
+  
+  function onDeleteProperty(){
+    cfetch(`http://localhost:9292/listings/${id}`, { 
+      method: 'DELETE',
+    })
+    .then((r) => r.json())
+    .then((deletedEvent) => handleDeleteEvent(deletedEvent))
+  }
+  const updatedListing = listings.filter((listing) => listing.id !== id)
+  setListings(updatedListing)
+  
 
 return (
     <div>
@@ -46,10 +62,10 @@ return (
         
 
         <Route path="listings"
-        element={<ListingPage listings={listings}/>}/>      
+        element={<ListingPage onUpdate={handleUpdatedListing} onDeleteProperty={onDeleteProperty}/>}/>      
 
         <Route path="listing_form"
-        element={<ListingForm onAddListings={onAddListings}/>}/>
+        element={<ListingForm newListings={onAddListings}/>}/>
 
         <Route 
               path="listings/:id" 
@@ -62,4 +78,5 @@ return (
       </div>
 )
 };
+
 export default App;

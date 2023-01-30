@@ -10,13 +10,9 @@ function ListingForm({ id, onAddListings }) {
     image: "",
     status: "",
     listPrice: "",
-    yearBuilt: "",
     storey: "",
     bedroom: "",
     bathroom: "",
-    garage: "",
-    buildingSize: "",
-    lotSize: "",
     architectureStyle: "",
     pool: "",
     subdivision_id: subdivisionId,
@@ -31,6 +27,7 @@ function ListingForm({ id, onAddListings }) {
 
   function handleSubmit(event){
     event.preventDefault()
+    console.log(submitted)
 
     fetch("http://localhost:9292/listings", {
       method: "POST",
@@ -39,13 +36,9 @@ function ListingForm({ id, onAddListings }) {
         "image_url": listingData.image,
         "status": listingData.status,
         "list_price": listingData.listPrice,
-        "year_built": listingData.yearBuilt,
         "storey": listingData.storey,
         "bedroom": listingData.bedroom,
         "bathroom": listingData.bathroom,
-        "garage": listingData.garage,
-        "building_size": listingData.buildingSize,
-        "lot_size": listingData.lotSize,
         "architecture_style": listingData.architectureStyle,
         "pool": listingData.pool,
         subdivision_id: subdivisionId,
@@ -59,13 +52,9 @@ function ListingForm({ id, onAddListings }) {
         image: "",
         status: "",
         listPrice: "",
-        yearBuilt: "",
         storey: "",
         bedroom: "",
         bathroom: "",
-        garage: "",
-        buildingSize: "",
-        lotSize: "",
         architectureStyle: "",
         pool: "",
         subdivision_id: subdivisionId,

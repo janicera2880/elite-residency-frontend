@@ -1,13 +1,14 @@
 import React, {useState} from "react";
 
-function ListingCard({listing, onDeleteProperty, onUpdateProperty}) {
 
-  const {id, image, status, listPrice, storey, bedroom, bathroom, architecturalStyle, pool} = listing
-  const [availability, setAvailability] = useState(true)
+function ListingCard({listings, onDeleteProperty, onUpdateProperty}) {
+
+  const {id, image, status, listPrice, storey, bedroom, bathroom, architecturalStyle, pool} = listings
+  const [available, setAvailable] = useState(true)
   const [newListPrice, setnewListPrice] = useState(listPrice)
 
   function availabilityHandle(){
-    setAvailability(!availability)
+    setAvailable(!available)
   }
 
   function handleDelete(){
@@ -28,14 +29,14 @@ function ListingCard({listing, onDeleteProperty, onUpdateProperty}) {
     }
 
   return (
-    <li className="listcard">
+    <li className="propertycard">
       <img src={image} />
       
       <h3>🏣Storey: {storey}|</h3><h3>🛌Bed:{bedroom}|</h3><h3>🛁Bath{bathroom}</h3>
       <h3>🏠Architectural Style: {architecturalStyle}|</h3><h3>🌊Pool: {pool ? "Yes" : "No"}|</h3><h3>🛁Bath{bathroom}</h3>
       <p>List Price: 💰{listPrice}</p>
-      <h4>Open To Show : {status}</h4>
-      {availability ? (
+      <h4>Availability : {status}</h4>
+      {available ? (
         <button onClick={availabilityHandle} className="available">Continue To Show</button>
       ) : (
         <button onClick={availabilityHandle}>Inactive</button>
