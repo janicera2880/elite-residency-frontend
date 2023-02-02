@@ -1,15 +1,18 @@
 import React, { useState, useEffect} from "react";
 import { Route, Routes } from "react-router-dom";
 import NavBar from "./NavBar";
-import SubdivisionList from "./SubdivisionList";
+import SubdivisionList from "./SubdivisionPage";
 import Header from "./Header";
 import ListingForm from "./ListingForm";
 import ListingPage from "./ListingPage";
 import Home from "./Home";
+import SubdivisionPage from "./SubdivisionPage";
 
 function App(){
  
   const [listingData, setListingData] = useState([]);
+  const [subdivisions, setsubdivisions] = useState([]);
+
  
 
   useEffect(() => {
@@ -18,7 +21,10 @@ function App(){
     .then(data => setListingData(data))
     
   }, [])
-  
+  function addNewSubdivision(newSubdivision){  
+    const updatedSubdivision = [newSubdivision, ...subdivisions]
+    setsubdivisions(updatedSubdivision)
+  }
 
   function handleNewListing(newListing){  
     setListingData([...listingData, newListing])
@@ -55,11 +61,16 @@ return (
         <Routes> 
 
         <Route path="/subdivisions"
-        element={<SubdivisionList />}/>
+        element={<SubdivisionPage subdivisions={subdivisions} addNewSubdivision={addNewSubdivision}/>}/>
         
+        <Route path="/subdivisions/:id/listings"
+        element={<SubdivisionList />}/>
 
         <Route path="listings"
-        element={<ListingPage  data={listingData} onUpdate={onUpdateProperty} onDelete={ onDeleteProperty}/>}/>      
+        element={<ListingPage  data={listingData} onUpdate={onUpdateProperty} onDelete={ onDeleteProperty}/>}/> 
+
+         <Route path="listings/:id"
+        element={<ListingPage  data={listingData} onUpdate={onUpdateProperty} onDelete={ onDeleteProperty}/>}/>           
 
         <Route path="listing_form"
         element={<ListingForm newListing={handleNewListing}/>}/>
