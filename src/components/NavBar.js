@@ -11,7 +11,7 @@ function NavBar () {
             <nav>
                 <NavLink to="/"className="nav-button">About Us</NavLink>
 
-                <NavLink to="/subdivisions" className="nav-button">Community Search</NavLink>
+                <NavLink to="/subdivisions" className="nav-button">Communities</NavLink>
             
                 <NavLink to="/listings" className="nav-button">Find A Home</NavLink>
                

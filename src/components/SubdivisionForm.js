@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 function SubdivisionForm({addNewSubdivision}) {
+  const navigate = useNavigate();
   const [subdivisionData, setSubdivisionData] = useState({
     image:"",
     name:"",
@@ -38,10 +41,12 @@ function SubdivisionForm({addNewSubdivision}) {
     overview:"",
     })
     console.log(subdivisionData);
+
+    navigate("/subdivisions")
   }
   return (
     <div className="subdivision-form">
-      <h2>Be A Part Of Our Growing Community!</h2>
+      <h3>Be A Part Of Our Growing Community!</h3>
       <form onSubmit={handleAdd}>
         <label>
             Upload Image:
@@ -59,7 +64,7 @@ function SubdivisionForm({addNewSubdivision}) {
             Highlights/Amenities:
             <input type="text" name="overview" value={subdivisionData.overview} onChange={submitAdd} />
         </label>                
-        <button type="submit">Your Community Has Been Successfully Added!</button>
+        <button type="submit"style={{fontWeight: "bold"}}>Click Submit</button>
       </form>
     </div>
   );

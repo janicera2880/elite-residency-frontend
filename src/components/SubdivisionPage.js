@@ -1,27 +1,13 @@
 import React from "react";
-import SubdivisionList from "./SubdivisionCard";
-import SubdivisionForm from "./SubdivisionForm";
+import SubdivisionCard from "./SubdivisionCard";
 
 
-function SubdivisionPage({subdivisions, addNewSubdivision}) {
-  //const [allSubdivision, setAllSubdivision] = useState([]);
-
-
- // useEffect(() => {
-   // fetch("http://localhost:9292/subdivisions")
-   // .then(response => response.json())
-    //.then(data =>  setAllSubdivision(data))
-    
- // }, [])
-  
-  //function addNewSubdivision(newSubdivision){  
-   // const addedSubdivision = [...allSubdivision, newSubdivision]
-    //setAllSubdivision(addedSubdivision)
- // }
+function SubdivisionPage({subdivisions}) {
+ 
   const subdivisionInfo = subdivisions.map(subdivisions => {
     
      return(
-    <SubdivisionList
+    <SubdivisionCard
     key={subdivisions.id}
     image={subdivisions.image_url}
     name={subdivisions.name}
@@ -38,8 +24,7 @@ function SubdivisionPage({subdivisions, addNewSubdivision}) {
   return (
     <div>
    
-    <SubdivisionForm addNewSubdivision={addNewSubdivision} />
-    <ul className="listings">{subdivisionInfo}</ul>   
+    <ul className="subdivision">{subdivisionInfo}</ul>   
 
     </div>
   )

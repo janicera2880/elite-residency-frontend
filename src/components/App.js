@@ -1,12 +1,13 @@
 import React, { useState, useEffect} from "react";
 import { Route, Routes } from "react-router-dom";
 import NavBar from "./NavBar";
-import SubdivisionList from "./SubdivisionPage";
+import SubdivisionPage from "./SubdivisionPage";
 import Header from "./Header";
 import ListingForm from "./ListingForm";
 import ListingPage from "./ListingPage";
 import Home from "./Home";
-import SubdivisionPage from "./SubdivisionPage";
+import SubdivisionList from "./SubdivisionList";
+
 
 function App(){
  
@@ -61,10 +62,10 @@ return (
         <Routes> 
 
         <Route path="/subdivisions"
-        element={<SubdivisionPage subdivisions={subdivisions} addNewSubdivision={addNewSubdivision}/>}/>
+        element={<SubdivisionPage subdivisions={subdivisions} />}/>
         
         <Route path="/subdivisions/:id/listings"
-        element={<SubdivisionList />}/>
+        element={<SubdivisionList subdivisions={subdivisions}/>}/>
 
         <Route path="listings"
         element={<ListingPage  data={listingData} onUpdate={onUpdateProperty} onDelete={ onDeleteProperty}/>}/> 
@@ -78,7 +79,7 @@ return (
         
         <Route 
               path="/*" 
-              element={<Home />}/>            
+              element={<Home addNewSubdivision={addNewSubdivision}/>}/>            
             
         </Routes>    
       </div>

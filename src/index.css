@@ -134,6 +134,7 @@ select{
 label {
   text-align: center;
 }
+
 .filter {
   width: 400px;
   text-align: center;
@@ -154,6 +155,7 @@ option {
 option:hover{
   background-color: rgb(172, 122, 85);
 }
+
 .grid-container {
   display: grid;
   margin: 0 auto;
@@ -187,4 +189,68 @@ html{
   background-color: #FEF7EC ;
   padding: 0 auto;
   margin: 0px auto;
+}
+.subdivision-form{
+  padding: 1%;
+  text-align: center;
+}
+.subdivision-form{
+  padding: 5%;
+  background-color: rgb(172, 122, 85);
+  border-radius: 40px;
+  margin-top: 0px;
+  margin-right: 450px;
+  margin-left: 450px;
+}
+button{
+  font-size: 18px;
+  font-family: Misto;
+  padding: 8px;
+  width: 30%;
+}
+button:hover{
+  background-color: #F5C675;
+  color:#3f5c46;
+  text-shadow: 2px 1px white;
+}
+.subdivision {
+  display: grid;
+  margin: 0 auto;
+  background-color: rgb(190, 138, 99);
+  grid-template-columns: auto auto;
+  gap: 1% 1%;
+  padding-right: 5%;
+  padding-left: 5%;
+  padding-bottom: 1%;
+  min-width: 50rem;
+}
+
+.grid-subdivision {
+  display: grid;
+  margin: 0 auto;
+  background-color: rgb(190, 138, 99);
+  grid-template-columns: auto auto auto;
+  gap: 1% 1%;
+  padding-right: 5%;
+  padding-left: 5%;
+  padding-bottom: 1%;
+  min-width: 50rem;
+}
+.subdivision-card {
+  display: flex;
+  height: 500px;
+  background-color: rgb(190, 138, 99);
+  display:inline-table;
+ 
+  border: 50px solidrgb(190, 138, 99);
+  padding: 40px;
+  font-size: 20px;
+  text-align: center;
+}
+.subdivision-card:hover{
+  box-shadow: 5px 5px #ffca74;
+}
+.subdivision-card img {
+  width: 100%;
+  border: 85x solid rgb(46, 42, 34);
 }

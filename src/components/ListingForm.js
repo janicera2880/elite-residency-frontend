@@ -115,7 +115,7 @@ Image:
         onChange={onChange} />
 </label>
 <br></br>
-        <button type="submit"><h3>Post New Listing</h3></button>
+        <button type="submit"style={{fontWeight: "bold"}}>Click Submit</button>
       </form>
     </div>
   );
