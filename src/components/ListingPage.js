@@ -2,7 +2,7 @@ import React from 'react'
 import ListingList from './ListingList';
 
 
-function ListingPage({listingData,  onDeleteProperty, onUpdateProperty}) {
+function ListingPage({listings,  onDeleteProperty, onUpdateProperty}) {
 
     return(
     <>
@@ -10,7 +10,7 @@ function ListingPage({listingData,  onDeleteProperty, onUpdateProperty}) {
     <h2>All Listings</h2>
     <br/>
         <ListingList
-        data={listingData} 
+        data={listings} 
         handleDelete={onDeleteProperty}
         handleUpdate={onUpdateProperty}
         />

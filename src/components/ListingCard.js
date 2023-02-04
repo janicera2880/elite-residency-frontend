@@ -2,11 +2,11 @@ import React, {useState} from "react";
 import EditListing from "./EditListing"
 
 
-function ListingCard({listingData, onDeleteProperty, onUpdateProperty}) {
+function ListingCard({listings, onDeleteProperty, onUpdateProperty}) {
   const[active, setActive] = useState(false)
   
 
-  const {id, image, status, listPrice, storey, bedroom, bathroom, architecturalStyle, pool} = listingData
+  const {id, image, status, listPrice, storey, bedroom, bathroom, architecturalStyle, pool} = listings
   
   
   function handleAvailability(){
@@ -29,7 +29,7 @@ function ListingCard({listingData, onDeleteProperty, onUpdateProperty}) {
 
       <EditListing
         id={id}
-        data={listingData}
+        data={listings}
         handleUpdate={onUpdateProperty} />
         
         <div className="details">

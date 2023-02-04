@@ -1,22 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 
 
+function Search({listings, setListingsToDisplay}) {
 
-function Search({search, handleSearch}) {
+  const [search, setSearch] = useState("")
   
+  const handleSearch = (e) => {
+    e.preventDefault()
+    console.log(search)
+    const searchToLowerCase = search.toLowerCase()
+    const listingsToShow = listings.filter(listing => listing.architecturalStyle.toLowerCase().includes(searchToLowerCase))
+    setListingsToDisplay(listingsToShow)
+  }
+
     return (
-      <div className="search-container">
-       
-        <input
-          className="search-bar"
-          type="text"        
-          value={search}
-          placeholder="Search by Design🔍..."
-          
-          
-          onChange={(event) => handleSearch(event.target.value)}
-        />
-      </div>
+      <div className="searchbar">
+      <form onSubmit={handleSearch}>
+      <label htmlFor="search">Search By Design:</label>
+      <input
+        type="text"
+        id="search"
+        value={search}
+        placeholder="Search..."
+        onChange={(e) => setSearch(() => e.target.value)}
+      />
+      </form>
+    </div>
     );
   }
 export default Search;

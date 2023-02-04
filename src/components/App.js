@@ -4,14 +4,14 @@ import NavBar from "./NavBar";
 import SubdivisionPage from "./SubdivisionPage";
 import Header from "./Header";
 import ListingForm from "./ListingForm";
-import ListingPage from "./ListingPage";
+import ListingList from "./ListingList";
 import Home from "./Home";
 import SubdivisionList from "./SubdivisionList";
 
 
 function App(){
  
-  const [listingData, setListingData] = useState([]);
+  const [listings, setListings] = useState([]);
   const [subdivisions, setsubdivisions] = useState([]);
 
  
@@ -19,7 +19,7 @@ function App(){
   useEffect(() => {
     fetch("http://localhost:9292/listings")
     .then(response => response.json())
-    .then(data => setListingData(data))
+    .then(data => setListings(data))
     
   }, [])
   function addNewSubdivision(newSubdivision){  
@@ -28,30 +28,30 @@ function App(){
   }
 
   function handleNewListing(newListing){  
-    setListingData([...listingData, newListing])
+    setListings([...listings, newListing])
    
   }
 
   function onUpdateProperty(newListing){
-    const updatedListing = listingData.map((listing) => {
+    const updatedListing = listings.map((listing) => {
       if (listing.id === newListing.id){
         return newListing
       } else {
         return listing
       }
     })
-    setListingData(updatedListing)
+    setListings(updatedListing)
   }
   
   function onDeleteProperty(deletedListingData){
-    const listingDeleted = listingData.filter((listing) => {
+    const listingDeleted = listings.filter((listing) => {
       if (listing.id !== deletedListingData.id) {
         return listing
       } else {
         return null
       }
     });
-    setListingData(listingDeleted);
+    setListings(listingDeleted);
   }
 return (
     <div>
@@ -64,14 +64,14 @@ return (
         <Route path="/subdivisions"
         element={<SubdivisionPage subdivisions={subdivisions} />}/>
         
-        <Route path="/subdivisions/:id/listings"
+        <Route path="/subdivisions/:id"
         element={<SubdivisionList subdivisions={subdivisions}/>}/>
 
         <Route path="listings"
-        element={<ListingPage  data={listingData} onUpdate={onUpdateProperty} onDelete={ onDeleteProperty}/>}/> 
+        element={<ListingList  data={listings} onUpdate={onUpdateProperty} onDelete={ onDeleteProperty}/>}/> 
 
          <Route path="listings/:id"
-        element={<ListingPage  data={listingData} onUpdate={onUpdateProperty} onDelete={ onDeleteProperty}/>}/>           
+        element={<ListingList  data={listings} onUpdate={onUpdateProperty} onDelete={ onDeleteProperty}/>}/>           
 
         <Route path="listing_form"
         element={<ListingForm newListing={handleNewListing}/>}/>

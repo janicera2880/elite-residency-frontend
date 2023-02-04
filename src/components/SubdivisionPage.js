@@ -22,11 +22,11 @@ function SubdivisionPage({subdivisions}) {
   
 
   return (
-    <div>
+    <>
    
-    <ul className="subdivision">{subdivisionInfo}</ul>   
+    <ul className="subdivision-card">{subdivisionInfo}</ul>   
 
-    </div>
+    </> 
   )
 }
 

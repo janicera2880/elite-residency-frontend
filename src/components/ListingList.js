@@ -2,37 +2,40 @@ import React, {useState} from "react";
 import ListingCard from "./ListingCard";
 import Search from "./Search";
 
-
-function ListingList({listingData, onDeleteProperty, onUpdateProperty}) {
-
-
-  const [search, setSearch] = useState("")
-
-  function handleSearch(currentSearch) {
-    setSearch(currentSearch)
-  
-  }
-
-  const shownListings = listingData.filter((listing) => {
-  
-
-    return listing.architecturalStyle.toLowerCase().includes(search.toLowerCase())
-  });
+function ListingList({listings, onDeleteProperty, onUpdateProperty, listingsToDisplay, setListingsToDisplay}) {
+  const [dataNext, setDataNext] = useState(0)
  
- 
+  .slice(dataNext, dataNext + 8)
 
-  return (
-    <main>
-      <Search search={search} handleSearch={handleSearch} />
-      <ListingCard
-      key={listingData.id}
-      listings={shownListings} 
-      onDeleteProperty={onDeleteProperty} 
+
+  const shownList = listings.map((listings) => 
+  <ListingCard
+      key={listings.id}
+      listingData={listings}
+      onDeleteProperty={onDeleteProperty}
       onUpdateProperty={onUpdateProperty}
-    />
-   </main>
-     
-  );
+  />)
+
+function handleClickNext() {
+  setDataNext((dataNext) => (dataNext + 8) % listings.length);
 }
+
+return (
+  <>
+  <Search listings={listings} listingsToDisplay={listingsToDisplay} setListingsToDisplay={setListingsToDisplay} />
+  <div className="event-list">
+    {shownList}
+    </div>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <div className="next-container">
+      <button className="next-button" onClick={handleClickNext}>Next</button>
+  </div>
+  </>    
+)
+}
+
 
 export default ListingList;

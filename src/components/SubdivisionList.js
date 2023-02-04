@@ -10,9 +10,9 @@ function SubdivisionList({subdivisions}) {
     const {name, imageUrl, communityType, overview} = subdivisions.find(subdivision => subdivision.id === parseInt(id))
 
     return (
-      <div className="SubdivisionCard">
+      <div className="grid-container">
           <h3>Meet Your Neighborhood: {name}</h3>      
-          <img src={imageUrl} alt={subdImg} />
+          <img src={imageUrl} alt={imageUrl} />
           <p><span style={{fontWeight: "bold"}}>Connunity Type:</span> {communityType}</p>
           <p><span style={{fontWeight: "bold"}}>Highlights/Ameneties:</span> {overview}</p>        
       </div>

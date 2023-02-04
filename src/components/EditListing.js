@@ -2,8 +2,8 @@ import React, {useState} from "react";
 
 
 
-function EditListing({ listingData, setIsChange, onUpdateProperty }) {
-  const {id, listPrice, status} = listingData
+function EditListing({ listings, setIsChange, onUpdateProperty }) {
+  const {id, listPrice, status} = listings
   const [newListPrice, setnewListPrice] = useState(listPrice);
   const [newStatus, setNewStatus] = useState(true)
   
