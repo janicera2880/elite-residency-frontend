@@ -156,35 +156,7 @@ option:hover{
   background-color: rgb(172, 122, 85);
 }
 
-.grid-container {
-  display: grid;  
-  margin: 0 auto;
-  background-color: rgb(190, 138, 99);
-  grid-template-columns: auto auto;
-  gap: 1% 1%;
-  padding-right: 5%;
-  padding-left: 5%;
-  padding-bottom: 1%;
-  min-width: 50rem;
-}
-.grid-item {
-  display: flex;
-  height: 500px;
-  background-color: rgb(190, 138, 99);
-  display:inline-table;
- 
-  border: 50px solidrgb(190, 138, 99);
-  padding: 40px;
-  font-size: 20px;
-  text-align: center;
-}
-.grid-item:hover{
-  box-shadow: 5px 5px #ffca74;
-}
-.grid-item img {
-  width: 100%;
-  border: 85x solid rgb(46, 42, 34);
-}
+
 html{
   background-color: #FEF7EC ;
   padding: 0 auto;
@@ -212,4 +184,29 @@ button:hover{
   background-color: #F5C675;
   color:#3f5c46;
   text-shadow: 2px 1px white;
+}
+
+
+.subdivision-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  background-color: rgb(172, 122, 85);
+
+  padding: 0px;
+}
+
+.subdivision-item {
+  height: 500px;
+  background-color: rgb(172, 122, 85);
+  display:inline-table;
+ 
+  border: 40px solid rgb(172, 122, 85);
+  padding: 40px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.subdivision-item img {
+  width: 50%;
+  border: 8px solid rgb(172, 122, 85);
 }

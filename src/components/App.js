@@ -17,9 +17,9 @@ function App(){
  
 
   useEffect(() => {
-    fetch("http://localhost:9292/listings")
+    fetch("http://localhost:9292/subdivisions")
     .then(response => response.json())
-    .then(data => setListings(data))
+    .then(data => setsubdivisions(data))
     
   }, [])
   function addNewSubdivision(newSubdivision){  

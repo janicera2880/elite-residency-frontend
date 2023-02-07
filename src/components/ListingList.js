@@ -5,10 +5,10 @@ import Search from "./Search";
 function ListingList({listings, onDeleteProperty, onUpdateProperty, listingsToDisplay, setListingsToDisplay}) {
   const [dataNext, setDataNext] = useState(0)
  
-  .slice(dataNext, dataNext + 8)
+ // .slice(dataNext, dataNext + 8)
 
 
-  const shownList = listings.map((listings) => 
+  const shownList = listings.slice(dataNext, dataNext + 8).map((listings) => 
   <ListingCard
       key={listings.id}
       listingData={listings}
