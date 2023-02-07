@@ -188,25 +188,44 @@ button:hover{
 
 
 .subdivision-container {
-  display: grid;
+  display:grid;
+  margin: 0 auto;
+  max-height: 105rem;
   grid-template-columns: auto auto;
-  background-color: rgb(172, 122, 85);
+  background-color: rgb(190, 138, 99);
+  font-family: Butler;
+  gap: 10% 1%;
+  padding-right: 5%;
+  padding-left: 5%;
+  padding-bottom: 5%;
+  min-width: 50rem;
 
-  padding: 0px;
 }
 
 .subdivision-item {
-  height: 500px;
-  background-color: rgb(172, 122, 85);
-  display:inline-table;
- 
-  border: 40px solid rgb(172, 122, 85);
-  padding: 40px;
-  font-size: 15px;
-  text-align: center;
+  display: flex;
+    flex-direction:column ;
+    background-color:  rgb(197, 141, 97);
+    align-content: center;
+    height: 200px;
+    width: 250px;
+    justify-content: center;
+    align-items: center;
+    font-family: Butler;
+    margin: 0 auto;
+    text-align: center;
+    padding: 15%;
+    border-radius: 20px;
+    box-shadow: 8px 5px rgb(65, 60, 56);
+    transition: .7s;
 }
 
-.subdivision-item img {
+.listing-image img {
   width: 50%;
   border: 8px solid rgb(172, 122, 85);
+}
+.viewLink{
+  font-size: 16px;
+  text-shadow: 1px 1px #d3c75d;
+  font-weight: bolder;
 }

@@ -3,7 +3,7 @@ import SubdivisionCard from "./SubdivisionCard";
 
 
 function SubdivisionPage({subdivisions}) {
- console.log(subdivisions)
+ //console.log(subdivisions)
   const subdivisionInfo = subdivisions.map(subdivisions => {
     
      return(

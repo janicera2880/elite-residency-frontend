@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 
 
-function SubdivisionCard({id, name, image_url, communityType, overview}) {
+function SubdivisionCard({id, name, communityType, overview}) {
   
 
   return (
@@ -12,9 +12,11 @@ function SubdivisionCard({id, name, image_url, communityType, overview}) {
 
    
         <h3>{name}</h3>      
-        <img src={image_url} width="500" height="400"alt={image_url} />   
-        <h2>Community Type:{communityType}</h2>
-        <h3>Highlights/Amenities:{overview}</h3>
+      
+        <h4>Community Type:</h4>
+        <p>{communityType}</p>
+        <h4>Highlights/Amenities:</h4>
+        <p>{overview}</p>
         <br></br>   
         <Link className="viewLink" to={`/subdivisions/${id}`}>Click To View Listings</Link>   
           
