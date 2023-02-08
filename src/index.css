@@ -189,6 +189,7 @@ button:hover{
 
 .subdivision-container {
   display:grid;
+  grid-template-columns: 48px auto;
   margin: 0 auto;
   max-height: 105rem;
   grid-template-columns: auto auto;
@@ -202,30 +203,35 @@ button:hover{
 
 }
 
-.subdivision-item {
-  display: flex;
-    flex-direction:column ;
+.subdivision-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+   
     background-color:  rgb(197, 141, 97);
     align-content: center;
-    height: 200px;
-    width: 250px;
+    height: 500px;
+    width: 670px;
     justify-content: center;
     align-items: center;
     font-family: Butler;
     margin: 0 auto;
-    text-align: center;
-    padding: 15%;
-    border-radius: 20px;
+    text-align: right;
+    padding: 10%;
+    border-radius: 10px;
     box-shadow: 8px 5px rgb(65, 60, 56);
-    transition: .7s;
+    transition: .10s;
 }
 
-.listing-image img {
-  width: 50%;
-  border: 8px solid rgb(172, 122, 85);
+.subdivision-grid img {
+  width: 100%;
+  border: 5px solid rgb(204, 145, 99);
 }
 .viewLink{
-  font-size: 16px;
-  text-shadow: 1px 1px #d3c75d;
-  font-weight: bolder;
+  background-color: rgb(63, 37, 17);
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 }
+

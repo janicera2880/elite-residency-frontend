@@ -6,7 +6,7 @@ import Header from "./Header";
 import ListingForm from "./ListingForm";
 import ListingList from "./ListingList";
 import Home from "./Home";
-import SubdivisionList from "./SubdivisionList";
+import SubdivisionList from "./SubdivisionListings";
 
 
 function App(){

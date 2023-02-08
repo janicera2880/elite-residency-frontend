@@ -3,27 +3,22 @@ import { Link } from "react-router-dom";
 
 
 
-function SubdivisionCard({id, name, communityType, overview}) {
+function SubdivisionCard({id, name, image_url, Commmunity_type, overview}) {
   
+ 
+    
 
-  return (
-
-    <li className="subdivision-item">
-
-   
-        <h3>{name}</h3>      
+    return (
+      <div className="subdivision-grid">      
       
-        <h4>Community Type:</h4>
-        <p>{communityType}</p>
-        <h4>Highlights/Amenities:</h4>
+        <h4>{name}</h4>
+        <p>{Commmunity_type}</p>            
+        <img src={image_url} width="600" height="300"alt={image_url} />
         <p>{overview}</p>
-        <br></br>   
-        <Link className="viewLink" to={`/subdivisions/${id}`}>Click To View Listings</Link>   
-          
-      </li>
-   
-   
-  );
-}
+        <br></br>      
+        <Link className="viewLink" to={`/subdivisions/${id}`}>View Available Listings</Link>               
+      </div>
+    );
+  }
 
 export default SubdivisionCard;

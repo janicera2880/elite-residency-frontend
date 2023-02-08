@@ -9,7 +9,7 @@ function SubdivisionPage({subdivisions}) {
      return(
     <SubdivisionCard
     key={subdivisions.id}
-    image={subdivisions.image_url}
+    image_url={subdivisions.image_url}
     name={subdivisions.name}
     communityType={subdivisions.community_type}
     overview={subdivisions.overview}
@@ -24,7 +24,10 @@ function SubdivisionPage({subdivisions}) {
   return (
     
    
-    <ul className="subdivision-container">{subdivisionInfo}</ul>   
+    <div className="subdivision-container">{subdivisionInfo}
+    
+  
+    </div>   
 
     
   )
