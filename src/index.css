@@ -229,9 +229,45 @@ button:hover{
 .viewLink{
   background-color: rgb(63, 37, 17);
   color: white;
-  padding: 14px 25px;
+  padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  
 }
 
+.listing-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: rgb(204, 145, 99);
+
+  padding: 0px;
+}
+
+.listing-item {
+  height: 400px;
+  background-color: rgb(190, 138, 99);
+  display:inline-table;
+ 
+  border: 0px solid rgb(190, 138, 99);
+  padding: 0px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.listing-item img {
+  width: 80%;
+  border: 4px solid rgb(77, 38, 8);
+}
+.backBtn {
+  background-color: rgb(51, 32, 17);
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  margin:auto;
+  text-align:justify;
+  width:auto;
+  
+  
+  
+}

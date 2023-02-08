@@ -1,53 +1,36 @@
-import React, {useState} from "react";
-import EditListing from "./EditListing"
+import React from "react";
 
 
-function ListingCard({listings, onDeleteProperty, onUpdateProperty}) {
-  const[active, setActive] = useState(false)
-  
 
-  const {id, image, status, listPrice, storey, bedroom, bathroom, architecturalStyle, pool} = listings
+function ListingCard({listings}) {
   
   
-  function handleAvailability(){
-    setActive(!active)
-}
 
- 
-  function handleDelete(){
-    fetch(`http://localhost:9292/listings/${id}`,{
-      method: "DELETE"
-    })
-    .then(r=>r.json())
-    .then((deletedListingData)=>onDeleteProperty(deletedListingData))
-   
-  }
+  const {image, status, list_price, storey, bedroom, bathroom, architecture_style, pool, garage, lot_size, building_size, year_built} = listings
+  
+  
+  
+
 
   return (
 
-    <div className="grid-item">
+    <div className="listing-container">
 
-      <EditListing
-        id={id}
-        data={listings}
-        handleUpdate={onUpdateProperty} />
         
-        <div className="details">
+      <div className="details">
 
-      <img src={image} alt={image}/>
-      <h3>🏣Storey: {storey}|</h3><h3>🛌Bed:{bedroom}|</h3><h3>🛁Bath{bathroom}</h3>
-      <h3>🏠Architectural Style: {architecturalStyle}|</h3><h3>🌊Pool: {pool ? "Yes" : "No"}|</h3><h3>🛁Bath{bathroom}</h3>
-      <div className="price">${listPrice}</div>
-      <h4>Availability : {status}</h4>
-      <button onClick={handleDelete} className="delete-list-btn">X</button>
+      <img src={image} width="600" height="300" alt={image}/>
+      <p>Listed Price : $ {list_price}.00</p>
+      <p>Status : {status? "Active" : "Inactive"}</p>
+      <p>{storey} Storey | {bedroom} Beds | {bathroom} Baths | {garage} Garage</p>
+      <p>{building_size} Sqft | {lot_size} Lot Sqft</p>
+      <p>🏠Design: {architecture_style} | Pool: {pool ? "Yes" : "No"} | Year Built : {year_built}</p>
+      
+    
       
     
               
-    {active ? (
-    <button  onClick={handleAvailability}  className="emoji-button active"><span>Continue To Show</span></button>
-    ) : (
-      <button onClick={handleAvailability} className="emoji-button inactive">Inactive!</button>
-    )}
+    
       
      
             
