@@ -2,8 +2,7 @@
 
 body {
   margin: 0;
-  font-family: Misto;
-  
+ 
   background-color:rgb(190, 138, 99);
 }
 
@@ -188,13 +187,10 @@ button:hover{
 
 
 .subdivision-container {
-  display:grid;
-  grid-template-columns: 48px auto;
+  display: grid;
   margin: 0 auto;
   max-height: 105rem;
   grid-template-columns: auto auto;
-  background-color: rgb(190, 138, 99);
-  font-family: Butler;
   gap: 10% 1%;
   padding-right: 5%;
   padding-left: 5%;
@@ -203,26 +199,24 @@ button:hover{
 
 }
 
-.subdivision-grid {
+.subdivision-card {
   display: grid;
-  grid-template-columns: auto auto;
-   
-    background-color:  rgb(197, 141, 97);
-    align-content: center;
-    height: 500px;
-    width: 670px;
-    justify-content: center;
-    align-items: center;
-    font-family: Butler;
-    margin: 0 auto;
-    text-align: right;
-    padding: 10%;
-    border-radius: 10px;
-    box-shadow: 8px 5px rgb(65, 60, 56);
-    transition: .10s;
+  flex-direction:row;
+  background-color: rgb(204, 145, 99);
+  height: 700px;
+  width: 650px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  padding: 9%;
+  border-radius: 20px;
+  box-shadow: 5px 5px #3d2208;
+  transition: .7s;
 }
 
-.subdivision-grid img {
+.subdivision-card img {
+  justify-content: center;
   width: 100%;
   border: 5px solid rgb(204, 145, 99);
 }
@@ -232,31 +226,40 @@ button:hover{
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
-  
+  display: flex;
+  margin:auto;
+  text-align:justify;
+  width:auto;
+  letter-spacing: 5px;
+  box-shadow: 0px  4px  #112831;
 }
+.viewLink:hover{
+  box-shadow: 0px  1px  #081f29;
+   background-color:#ad8d48;
+   text-shadow: 2px 2px 0px#965c5c;
+   color:#F5C675;
+  }
 
 .listing-container {
   display: grid;
   grid-template-columns: auto auto auto;
   background-color: rgb(204, 145, 99);
-
-  padding: 0px;
+  padding: 20px;
 }
 
-.listing-item {
-  height: 400px;
+.listing-container {
+  height: 500px;
+  width: 600px;
   background-color: rgb(190, 138, 99);
   display:inline-table;
- 
   border: 0px solid rgb(190, 138, 99);
-  padding: 0px;
+  padding: 10px;
   font-size: 15px;
   text-align: center;
 }
 
-.listing-item img {
-  width: 80%;
+.listing-container img {
+  width: 85%;
   border: 4px solid rgb(77, 38, 8);
 }
 .backBtn {
@@ -267,7 +270,15 @@ button:hover{
   margin:auto;
   text-align:justify;
   width:auto;
-  
+  letter-spacing: 5px;
+  box-shadow: 0px  4px  #112831;
   
   
 }
+.backBtn:hover{
+  box-shadow: 0px  1px  #081f29;
+   background-color:#ad8d48;
+   text-shadow: 2px 2px 0px#353331;
+   color:#F5C675;
+  }
+ 
