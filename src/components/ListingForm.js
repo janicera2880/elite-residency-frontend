@@ -39,8 +39,12 @@ function ListingForm({ id, newListing }) {
         "storey": formData.storey,
         "bedroom": formData.bedroom,
         "bathroom": formData.bathroom,
+        "garage": formData.garage,
+        "lotSize": formData.lotSize,
+        "buildingSize": formData.buildingSize,
         "architecture_style": formData.architectureStyle,
         "pool": formData.pool,
+        "yearBuilt": formData.yearBuilt,
         subdivision_id: subdivisionId,
         
       })
@@ -81,7 +85,7 @@ Image:
 <br></br>
 <label>
     List Price:
-        <input type="number" name="listPrice" step="0.01" placeholder="List Price" value = {formData.listPrice} 
+        <input type="number" name="list_price" step="0.01" placeholder="List Price" value = {formData.listPrice} 
         onChange={onChange} />
 </label>
 <br></br>
@@ -104,6 +108,24 @@ Image:
 </label>
 <br></br>
 <label>
+    Garage:
+        <input type="number" name="garage" placeholder="Garage" value = {formData.garage} 
+        onChange={onChange} />
+</label>
+<br></br>
+<label>
+    Building Size:
+        <input type="number" name="building_size" placeholder="Building Size" value = {formData.buildingSize} 
+        onChange={onChange} />
+</label>
+<br></br>
+<label>
+    Lot Size:
+        <input type="number" name="lot_size" placeholder="Lot Size" value = {formData.lotSize} 
+        onChange={onChange} />
+</label>
+<br></br>
+<label>
     Architecture Style:
         <input type="text" name="architectureStyle" placeholder="Architecture Style" value = {formData.architectureStyle} 
         onChange={onChange} />
@@ -112,6 +134,12 @@ Image:
 <label>
     Pool:
         <input type="text" name="pool" placeholder="Pool" value = {formData.pool} 
+        onChange={onChange} />
+</label>
+<br></br>
+<label>
+    Year Built:
+        <input type="number" name="year_built" placeholder="Year Built" value = {formData.yearBuilt} 
         onChange={onChange} />
 </label>
 <br></br>

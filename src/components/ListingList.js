@@ -1,41 +1,15 @@
-import React, {useState} from "react";
+import React from "react";
 import ListingCard from "./ListingCard";
-import Search from "./Search";
 
-function ListingList({listings, onDeleteProperty, onUpdateProperty, listingsToDisplay, setListingsToDisplay}) {
-  const [dataNext, setDataNext] = useState(0)
- 
- // .slice(dataNext, dataNext + 8)
-
-
-  const shownList = listings.slice(dataNext, dataNext + 8).map((listings) => 
-  <ListingCard
-      key={listings.id}
-      listingData={listings}
-      onDeleteProperty={onDeleteProperty}
-      onUpdateProperty={onUpdateProperty}
-  />)
-
-function handleClickNext() {
-  setDataNext((dataNext) => (dataNext + 8) % listings.length);
+function ListingList({listings, onListingDelete, onPriceEdit}) {
+  
+  const allListings = listings.map(listing => {
+    return <ListingCard key={listing.id} id={listing.id} listings={listings} onListingDelete={onListingDelete} onPriceEdit={onPriceEdit}/>
+  })
+  
+  return (
+    <ul className="list-card">{allListings}</ul>
+  );
 }
-
-return (
-  <>
-  <Search listings={listings} listingsToDisplay={listingsToDisplay} setListingsToDisplay={setListingsToDisplay} />
-  <div className="event-list">
-    {shownList}
-    </div>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <div className="next-container">
-      <button className="next-button" onClick={handleClickNext}>Next</button>
-  </div>
-  </>    
-)
-}
-
 
 export default ListingList;

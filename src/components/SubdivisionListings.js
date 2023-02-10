@@ -6,10 +6,13 @@ import Logo from "../images/rubyproject.png"
 
 function SubdivisionListings({ subdivisions }) {
   
+  
+
   const params = useParams();
   const navigate = useNavigate();
 
   const showSubdivision = subdivisions.find(({ id }) => id === parseInt(params.id));
+  
 
   const goBack = () => {
     navigate(-1);
@@ -24,11 +27,15 @@ function SubdivisionListings({ subdivisions }) {
         
       />
     ));
-
+      
    
   }
+
+ 
   return (
     <div className="subdivision-list">
+     
+
      <img id="logo" src={Logo} alt="logo" width="100" height="200" className="center"/>
       {viewListings}
       <br></br>

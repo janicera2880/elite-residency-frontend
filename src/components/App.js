@@ -4,9 +4,11 @@ import NavBar from "./NavBar";
 import SubdivisionPage from "./SubdivisionPage";
 import Header from "./Header";
 import ListingForm from "./ListingForm";
-import ListingList from "./ListingList";
 import Home from "./Home";
 import SubdivisionList from "./SubdivisionListings";
+import Footer from "./Footer";
+import ListingPage from "./ListingPage";
+import EditListing from "./EditListing";
 
 
 function App(){
@@ -32,7 +34,7 @@ function App(){
    
   }
 
-  function onUpdateProperty(newListing){
+  function onUpdateListing(newListing){
     const updatedListing = listings.map((listing) => {
       if (listing.id === newListing.id){
         return newListing
@@ -43,9 +45,9 @@ function App(){
     setListings(updatedListing)
   }
   
-  function onDeleteProperty(deletedListingData){
+  function onDeleteListing(deletedListing){
     const listingDeleted = listings.filter((listing) => {
-      if (listing.id !== deletedListingData.id) {
+      if (listing.id !== deletedListing.id) {
         return listing
       } else {
         return null
@@ -68,10 +70,10 @@ return (
         element={<SubdivisionList subdivisions={subdivisions}/>}/>
 
         <Route path="listings"
-        element={<ListingList  data={listings} onUpdate={onUpdateProperty} onDelete={ onDeleteProperty}/>}/> 
+        element={<ListingPage  data={listings} onUpdate={onUpdateListing} onDelete={onDeleteListing}/>}/> 
 
          <Route path="listings/:id"
-        element={<ListingList  data={listings} onUpdate={onUpdateProperty} onDelete={ onDeleteProperty}/>}/>           
+        element={<EditListing  data={listings} onUpdate={onUpdateListing} onDelete={ onDeleteListing}/>}/>           
 
         <Route path="listing_form"
         element={<ListingForm newListing={handleNewListing}/>}/>
@@ -80,8 +82,9 @@ return (
         <Route 
               path="/*" 
               element={<Home addNewSubdivision={addNewSubdivision}/>}/>            
-            
+          
         </Routes>    
+        <Footer />  
       </div>
 )
 };
