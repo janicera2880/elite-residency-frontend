@@ -8,7 +8,6 @@ import Home from "./Home";
 import SubdivisionList from "./SubdivisionListings";
 import Footer from "./Footer";
 import ListingPage from "./ListingPage";
-import EditListing from "./EditListing";
 
 
 function App(){
@@ -34,27 +33,7 @@ function App(){
    
   }
 
-  function onUpdateListing(newListing){
-    const updatedListing = listings.map((listing) => {
-      if (listing.id === newListing.id){
-        return newListing
-      } else {
-        return listing
-      }
-    })
-    setListings(updatedListing)
-  }
-  
-  function onDeleteListing(deletedListing){
-    const listingDeleted = listings.filter((listing) => {
-      if (listing.id !== deletedListing.id) {
-        return listing
-      } else {
-        return null
-      }
-    });
-    setListings(listingDeleted);
-  }
+ 
 return (
     <div>
         
@@ -69,12 +48,10 @@ return (
         <Route path="/subdivisions/:id"
         element={<SubdivisionList subdivisions={subdivisions}/>}/>
 
-        <Route path="listings"
-        element={<ListingPage  data={listings} onUpdate={onUpdateListing} onDelete={onDeleteListing}/>}/> 
-
-         <Route path="listings/:id"
-        element={<EditListing  data={listings} onUpdate={onUpdateListing} onDelete={ onDeleteListing}/>}/>           
-
+        <Route path="/listings"
+        element={<ListingPage listings={listings} />}/>
+        
+       
         <Route path="listing_form"
         element={<ListingForm newListing={handleNewListing}/>}/>
 
