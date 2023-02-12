@@ -15,7 +15,7 @@ function ListingCard({listings}) {
         
      
 
-      <img src={image_url} width="300" height="200" alt={image_url}/>
+      <img src={image_url} width="400" height="300" alt={image_url}/>
       <p>Listed Price : $ {list_price}.00</p>
       <p>{storey} Storey | {bedroom} Beds | {bathroom} Baths | {garage} Garage</p>
       <p>{building_size} Sqft | {lot_size} Lot Sqft</p>

@@ -15,7 +15,7 @@ function ListingDetail({id, active, inactive, image_url, list_price, storey, bed
       <p>🏠Design: {architecture_style} | Pool: {pool? "Yes" : "No"} | Year Built : {year_built}</p>
 
 
-      <Link className="viewLink" to={`/listings/${id}`}>Edit Here</Link>
+      <Link className="viewLink" to={`subdivisions/listings/${id}`}>Edit Here</Link>
     </li>
     
   )

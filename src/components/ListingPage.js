@@ -5,7 +5,8 @@ import Filter from "./Filter";
 
 
 function ListingPage({listings}) {
-  console.log(listings)
+  //console.log(listings)
+  
     const [filterSearch, setFilterSearch] = useState("All");
        
     function handleFilter(event){
@@ -20,8 +21,10 @@ function ListingPage({listings}) {
       return listing.inactive.toString() === filterSearch;
     })
   
-    const resultListing = displayedListings.map(listing => {
+    const resultListing = displayedListings.map(listings => {
+      
       return(
+
         <ListingDetail
         key={listings.id}
         id={listings.id}
@@ -42,12 +45,13 @@ function ListingPage({listings}) {
 })
 
 return (
-  <div>
+  <div className="listings-grid">{resultListing}
+
     <Filter handleFilter={handleFilter}/>
-    <ul className="listings-grid">{resultListing}</ul>      
+          
   </div>
   
-  
-)
+    )
+
 }
 export default ListingPage;
