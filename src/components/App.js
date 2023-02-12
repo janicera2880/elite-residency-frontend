@@ -49,7 +49,7 @@ return (
         element={<SubdivisionList subdivisions={subdivisions}/>}/>
 
         <Route path="/listings"
-        element={<ListingPage listings={listings} />}/>
+        element={<ListingPage listings={listings}/>}/>
         
        
         <Route path="listing_form"
