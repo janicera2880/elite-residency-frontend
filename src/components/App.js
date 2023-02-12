@@ -8,6 +8,7 @@ import Home from "./Home";
 import SubdivisionList from "./SubdivisionListings";
 import Footer from "./Footer";
 import ListingPage from "./ListingPage";
+import EditListing from "./EditListing";
 
 
 function App(){
@@ -22,14 +23,14 @@ function App(){
     .then(response => response.json())
     .then(data => setsubdivisions(data))
     
-  }, [])
+  }, [listings])
 
   useEffect(() => {
     fetch("http://localhost:9292/listings")
     .then(response => response.json())
     .then(data => setListings(data))
     
-  }, [])
+  }, [listings])
   
   function addNewSubdivision(newSubdivision){  
     const updatedSubdivision = [newSubdivision, ...subdivisions]
@@ -40,6 +41,24 @@ function App(){
     setListings([...listings, newListing])
    
   }
+
+  function handleDeleteListing(id) {
+    const updatedListingArray = listings.filter((listing) => listing.id !== id);
+    setListings(updatedListingArray);
+  }
+
+  function handleUpdateListing(updatedListing) {
+    const updatedListingArray = listings.map((listing) => {
+      if (listing.id === updatedListing.id) {
+        return updatedListing;
+      } else {
+        return listing;
+      }
+    });
+    setListings(updatedListingArray);
+  }
+
+ 
 
  
 return (
@@ -59,7 +78,9 @@ return (
         <Route path="/listings"
         element={<ListingPage listings={listings}/>}/>
         
-       
+        <Route path="/listings/:id"
+        element={<EditListing listings={listings} handleDeleteListing={handleDeleteListing} handleUpdateListing={handleUpdateListing} />}/>
+
         <Route path="listing_form"
         element={<ListingForm newListing={handleNewListing}/>}/>
 

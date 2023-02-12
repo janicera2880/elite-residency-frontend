@@ -1,12 +1,14 @@
 import React, {useState} from "react";
-import {useNavigate} from "react-router-dom"
+import {useParams, useNavigate} from "react-router-dom"
 
-function EditListing({allListings, onListingDelete, onEditListing}) {
 
-   
+function EditListing({listings, onDeleteListing, onUpdateListing}) {
+
+    const { id } = useParams()
     const navigate = useNavigate()
+   
 
-    const {id, image_url, status, list_price, storey, bedroom, bathroom, architecture_style, pool, garage, lot_size, building_size, year_built}= allListings.find(listing => listing.id === Number(id))
+    const {image_url, status, list_price, storey, bedroom, bathroom, architecture_style, pool, garage, lot_size, building_size, year_built}= listings.find(listing => listing.id === Number(id))
 
     const [active, setActive] = useState(true);
     const [updatedPrice, setUpdatedPrice] = useState(list_price);
@@ -20,9 +22,7 @@ function EditListing({allListings, onListingDelete, onEditListing}) {
     setIsClicked(() => !isClicked)
   }
 
-  
-
-    const handleUpdatedListing = (e) => {
+    const handleUpdateListing = (e) => {
     e.preventDefault()
     fetch(`http://localhost:9292/listings/${id}`, {
       method: "PATCH",
@@ -31,12 +31,13 @@ function EditListing({allListings, onListingDelete, onEditListing}) {
       },
       body: JSON.stringify({
         "list_price": list_price,
+        "active" : true
        
       })
     })
       .then(r => r.json())
       .then(updatedListing => {
-        onEditListing(updatedListing)
+        onUpdateListing(updatedListing)
         toggleIsClicked()
 
       })
@@ -44,12 +45,12 @@ function EditListing({allListings, onListingDelete, onEditListing}) {
 
   }
 
-  const deletedListing = () => {
+  const handleDeleteListing = () => {
     fetch(`http://localhost:9292/listings/${id}`, {
       method: "DELETE",
     })
       .then(r => r.json())
-      .then((deletedListing) => onListingDelete(deletedListing))
+      .then((deletedListing) => onDeleteListing(deletedListing))
       navigate("/listings")
   }
 
@@ -78,14 +79,14 @@ function EditListing({allListings, onListingDelete, onEditListing}) {
         <button onClick={toggleAvailable} className="primary">Sold</button>
       )}
       {isClicked ? (
-        <form onSubmit={handleUpdatedListing}>
+        <form onSubmit={handleUpdateListing}>
           <label>
           <input type="number" name="updatedPrice" placeholder="Enter New List Price" value={updatedPrice} onChange={(event) => setUpdatedPrice(event.target.value)} /> 
           </label>
           <button className="primary"type="submit">Update ✅</button>
         </form>
       ) : null}
-      <button className="primary"onClick={deletedListing}>Delete</button>
+      <button className="primary"onClick={handleDeleteListing}>Delete</button>
       
     </div>
   );
