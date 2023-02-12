@@ -23,6 +23,14 @@ function App(){
     .then(data => setsubdivisions(data))
     
   }, [])
+
+  useEffect(() => {
+    fetch("http://localhost:9292/listings")
+    .then(response => response.json())
+    .then(data => setListings(data))
+    
+  }, [])
+  
   function addNewSubdivision(newSubdivision){  
     const updatedSubdivision = [newSubdivision, ...subdivisions]
     setsubdivisions(updatedSubdivision)

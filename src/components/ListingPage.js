@@ -45,9 +45,10 @@ function ListingPage({listings}) {
 })
 
 return (
-  <div className="listings-grid">{resultListing}
-
+  <div>
     <Filter handleFilter={handleFilter}/>
+    
+  <ul className="listings-grid">{resultListing}</ul>
           
   </div>
   

@@ -88,7 +88,7 @@ input {
   transition: .5s;
 }
 .nav-button:hover{
-  background-color: #F5C675;
+  background-color: #638d86;
   color:#3f5c46;
   text-shadow: 2px 1px white;
 }
@@ -318,36 +318,27 @@ button:hover{
 
 .listings-grid {
   display: grid;
-  margin: 0 auto;
-  max-height: 100rem;
-  grid-template-columns: auto auto auto auto;
-  gap: 1% 1%;
-  padding-right: 1%;
-  padding-left: 5%;
-  padding-bottom: 5%;
-  min-width: 50rem;
 
+  grid-template-columns: repeat(3, 500px);
+  
+  grid-auto-rows: auto auto;
+  
+  grid-gap: 10rem;
+  
 }
 
 .listing-detail {
-  display: grid;
-  flex-direction:column;
-  background-color: rgb(204, 145, 99);
-  height: 700px;
-  width: 650px;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  text-align: center;
-  padding: 2%;
+  border: 2px solid rgb(231, 183, 147);
+
   border-radius: 5px;
-  box-shadow: 5px 5px #3d2208;
-  transition: .7s;
+  
+  padding: .7rem;
+  
 }
 
 .listing-detail img {
   justify-content: center;
   width: 100%;
-  border: 5px solid rgb(204, 145, 99);
+  border: 5px solid rgb(231, 183, 147);
 }
  
