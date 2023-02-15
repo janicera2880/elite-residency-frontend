@@ -14,7 +14,7 @@ function ListingDetail({id, image_url, list_price, storey, bedroom, bathroom, ga
       <br></br>
       <br></br>
 
-      <Link className="viewLink" to={`subdivisions/listings/${id}`}>Edit Here</Link>
+      <Link className="viewLink" to={`${id}/edit`}>Edit Here</Link>
     </li>
     
   )

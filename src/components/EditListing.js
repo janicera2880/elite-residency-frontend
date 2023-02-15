@@ -8,14 +8,14 @@ function EditListing({listings, onDeleteListing, onUpdateListing}) {
     const navigate = useNavigate()
    
 
-    const {image_url, status, list_price, storey, bedroom, bathroom, architecture_style, pool, garage, lot_size, building_size, year_built}= listings.find(listing => listing.id === Number(id))
+    const {image_url, active, list_price, storey, bedroom, bathroom, architecture_style, garage, lot_size, building_size, year_built}= listings.find(listing => listing.id === Number(id))
 
-    const [active, setActive] = useState(true);
+    const [available, setAvailable] = useState(true);
     const [updatedPrice, setUpdatedPrice] = useState(list_price);
     const [isClicked, setIsClicked] = useState(false);
   
     const toggleAvailable = () => {
-    setActive(() => !active)
+      setAvailable(() => !available)
   }
 
     const toggleIsClicked = () => {
@@ -60,20 +60,20 @@ function EditListing({listings, onDeleteListing, onUpdateListing}) {
 
   return (
 
-    <div className="listing-container">
+    <div className="listing-edit">
 
         
      
 
       <img src={image_url} width="600" height="400" alt={image_url}/>
       <p>Listed Price : $ {list_price}.00</p>
-      <p>Status : {status? "Active" : "Inactive"}</p>
+      <p>Status : {active? "Active" : "Inactive"}</p>
       <p>{storey} Storey | {bedroom} Beds | {bathroom} Baths | {garage} Garage</p>
       <p>{building_size} Sqft | {lot_size} Lot Sqft</p>
-      <p>🏠Design: {architecture_style} | Pool: {pool? "Yes" : "No"} | Year Built : {year_built}</p>
+      <p>🏠Design: {architecture_style} | Year Built : {year_built}</p>
 
       <button onClick={toggleIsClicked} className="primary">Edit List Price</button>
-      {active ? (
+      {available ? (
         <button onClick={toggleAvailable} className="primary">Continue To Show</button>
       ) : (
         <button onClick={toggleAvailable} className="primary">Sold</button>

@@ -7,7 +7,7 @@ function Filter({handleFilter}) {
       <select name="filter" onChange={handleFilter} >
         <option className="option-filter" value="All">All</option>
         <option className="option-filter" value={true}>Active Listings</option>
-        <option className="option-filter" value={false}>Pending/Sold</option>
+        <option className="option-filter" value={true}>Pending/Sold</option>
       </select>
     </div>
 );

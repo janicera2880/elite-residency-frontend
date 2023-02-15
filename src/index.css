@@ -273,7 +273,7 @@ button:hover{
 }
 
 .listing-container img {
-  width: 85%;
+  width: 88%;
   border: 4px solid rgb(77, 38, 8);
 }
 /* Previous Page Button */
@@ -328,7 +328,7 @@ button:hover{
 }
 
 .listing-detail {
-  border: 2px solid rgb(231, 183, 147);
+  border: 1px solid rgb(231, 183, 147);
 
   border-radius: 5px;
   
@@ -339,6 +339,28 @@ button:hover{
 .listing-detail img {
   justify-content: center;
   width: 100%;
-  border: 5px solid rgb(231, 183, 147);
+  border: 3px solid rgb(231, 183, 147);
 }
+
+ /* For Edit Page */
+.listing-edit {
+  margin-left: auto;
+    margin-right: auto;
+    width: 8em
+}
+
+.listing-edit {
+  height: 800px;
+  width: 500px;
+  background-color: rgb(190, 138, 99);
  
+  border: 0px solid rgb(190, 138, 99);
+  padding: 5px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.listing-edit img {
+  width: 85%;
+  border: 4px solid rgb(77, 38, 8);
+}

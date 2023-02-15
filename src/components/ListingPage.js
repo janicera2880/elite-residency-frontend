@@ -18,7 +18,7 @@ function ListingPage({listings}) {
     const displayedListings = listings.filter((listing) => {
       if (filterSearch === "All") return true;
   
-      return listing.inactive.toString() === filterSearch;
+      return listing.active.toString() === filterSearch;
     })
   
     const resultListing = displayedListings.map(listings => {

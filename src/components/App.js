@@ -78,7 +78,7 @@ return (
         <Route path="/listings"
         element={<ListingPage listings={listings}/>}/>
         
-        <Route path="/listings/:id"
+        <Route path="/listings/:id/edit"
         element={<EditListing listings={listings} handleDeleteListing={handleDeleteListing} handleUpdateListing={handleUpdateListing} />}/>
 
         <Route path="listing_form"
