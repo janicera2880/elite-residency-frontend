@@ -2,21 +2,23 @@ import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 
 
-function ListingForm({ id, newListing }) {
+function ListingForm({id, newListing }) {
   const navigate = useNavigate();
   const subdivisionId = parseInt(id);
 
   const [formData, setFormData] = useState({
-    image: "",
-    status: "",
-    listPrice: "",
+    image_url: "",
+    list_price: "",
     storey: "",
     bedroom: "",
     bathroom: "",
-    architectureStyle: "",
-    pool: "",
-    subdivision_id: subdivisionId,
-
+    garage: "",
+    architecture_style: "",
+    building_size: "",
+    lot_size: "",
+    year_built: "",
+    subdivisionId: subdivisionId,
+    
   })
 
   function onChange(event){
@@ -33,19 +35,18 @@ function ListingForm({ id, newListing }) {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
-        "image_url": formData.image,
-        "status": formData.status,
-        "list_price": formData.listPrice,
-        "storey": formData.storey,
-        "bedroom": formData.bedroom,
-        "bathroom": formData.bathroom,
-        "garage": formData.garage,
-        "lotSize": formData.lotSize,
-        "buildingSize": formData.buildingSize,
-        "architecture_style": formData.architectureStyle,
-        "pool": formData.pool,
-        "yearBuilt": formData.yearBuilt,
-        subdivision_id: subdivisionId,
+      image_url: formData.image_url,
+      list_price: formData.list_price,
+      storey: formData.storey,
+      bedroom: formData.bedroom,
+      bathroom: formData.bathroom,
+      garage: formData.garage,
+      architecture_style: formData.architecture_style,
+      building_size: formData.building_size,
+      lot_size: formData.lot_size,
+      year_built: formData.year_built,
+      subdivisionId: subdivisionId,
+      
         
       })
     })
@@ -53,15 +54,18 @@ function ListingForm({ id, newListing }) {
      // .then((data) => console.log(data))
     .then(newListing)    
     setFormData({
-        image: "",
-        status: "",
-        listPrice: "",
+        image_url: "",
+        list_price: "",
         storey: "",
         bedroom: "",
         bathroom: "",
-        architectureStyle: "",
-        pool: "",
-        subdivision_id: subdivisionId,
+        garage: "",
+        architecture_style: "",
+        building_size: "",
+        lot_size: "",
+        year_built: "",
+        subdivisionId: subdivisionId,
+       
         
     })
     navigate("/listings")
@@ -73,19 +77,13 @@ function ListingForm({ id, newListing }) {
         <br></br>
 <label>
 Image:
-        <input type="text" name="image" placeholder="Image" value = {formData.image} 
-        onChange={onChange} />
-</label>
-<br></br>
-<label>
-  Status:
-        <input type="text" name="status" placeholder="Status" value = {formData.status} 
+        <input type="text" name="image_url" placeholder="Image" value = {formData.image_url} 
         onChange={onChange} />
 </label>
 <br></br>
 <label>
     List Price:
-        <input type="number" name="list_price" step="0.01" placeholder="List Price" value = {formData.listPrice} 
+        <input type="number" name="list_price" step="0.01" placeholder="List Price" value = {formData.list_price} 
         onChange={onChange} />
 </label>
 <br></br>
@@ -115,31 +113,25 @@ Image:
 <br></br>
 <label>
     Building Size:
-        <input type="number" name="building_size" placeholder="Building Size" value = {formData.buildingSize} 
+        <input type="number" name="building_size" placeholder="Building Size" value = {formData.building_size} 
         onChange={onChange} />
 </label>
 <br></br>
 <label>
     Lot Size:
-        <input type="number" name="lot_size" placeholder="Lot Size" value = {formData.lotSize} 
+        <input type="number" name="lot_size" placeholder="Lot Size" value = {formData.lot_size} 
         onChange={onChange} />
 </label>
 <br></br>
 <label>
     Architecture Style:
-        <input type="text" name="architectureStyle" placeholder="Architecture Style" value = {formData.architectureStyle} 
-        onChange={onChange} />
-</label>
-<br></br>
-<label>
-    Pool:
-        <input type="text" name="pool" placeholder="Pool" value = {formData.pool} 
+        <input type="text" name="architecture_style" placeholder="Architecture Style" value = {formData.architecture_style} 
         onChange={onChange} />
 </label>
 <br></br>
 <label>
     Year Built:
-        <input type="number" name="year_built" placeholder="Year Built" value = {formData.yearBuilt} 
+        <input type="number" name="year_built" placeholder="Year Built" value = {formData.year_built} 
         onChange={onChange} />
 </label>
 <br></br>

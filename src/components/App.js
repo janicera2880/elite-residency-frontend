@@ -23,22 +23,25 @@ function App(){
     .then(response => response.json())
     .then(data => setsubdivisions(data))
     
-  }, [listings])
+  }, [])
+
+  function addNewSubdivision(newSubdivision){  
+    const updatedSubdivision = [subdivisions, ...newSubdivision]
+    setsubdivisions(updatedSubdivision)
+  }
 
   useEffect(() => {
     fetch("http://localhost:9292/listings")
     .then(response => response.json())
     .then(data => setListings(data))
     
-  }, [listings])
+  }, [])
   
-  function addNewSubdivision(newSubdivision){  
-    const updatedSubdivision = [newSubdivision, ...subdivisions]
-    setsubdivisions(updatedSubdivision)
-  }
+ 
 
   function handleNewListing(newListing){  
-    setListings([...listings, newListing])
+    const updatedListings = [...listings, newListing]
+    setListings(updatedListings)
    
   }
 
@@ -48,6 +51,23 @@ function App(){
   }
 
   function handleUpdateListing(updatedListing) {
+    console.log(updatedListing)
+    const updatedSubdivisionArray = subdivisions.map((subdivision) => {
+      if(subdivision.id === updatedListing.subdivision_id) {
+        return {
+          ...subdivision,
+          listings: subdivision.listings.map((listing) => {
+            if (listing.id === updatedListing.id) {
+              return updatedListing;
+            } else {
+              return listing;
+            }
+          })
+        }
+      } else {
+        return subdivision
+      }
+    })
     const updatedListingArray = listings.map((listing) => {
       if (listing.id === updatedListing.id) {
         return updatedListing;
@@ -55,6 +75,7 @@ function App(){
         return listing;
       }
     });
+    setsubdivisions(updatedSubdivisionArray);
     setListings(updatedListingArray);
   }
 

@@ -203,7 +203,7 @@ button:hover{
 .subdivision-container {
   display: grid;
   margin: 0 auto;
-  max-height: 100rem;
+  max-height: 500rem;
   grid-template-columns: auto auto;
   gap: 1% 1%;
   padding-right: 1%;
@@ -217,7 +217,7 @@ button:hover{
   display: grid;
   flex-direction:column;
   background-color: rgb(204, 145, 99);
-  height: 700px;
+  height: 780px;
   width: 650px;
   justify-content: center;
   align-items: center;

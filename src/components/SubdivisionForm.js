@@ -6,7 +6,7 @@ function SubdivisionForm({addNewSubdivision}) {
 
   const navigate = useNavigate();
   const [subdivisionData, setSubdivisionData] = useState({
-    image:"",
+    image_url:"",
     name:"",
     overview:"",
   })
@@ -26,7 +26,7 @@ function SubdivisionForm({addNewSubdivision}) {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
-        "image":subdivisionData.image,
+        "image_url":subdivisionData.image_url,
         "name":subdivisionData.name,
         "overview": subdivisionData.overview,
       })
@@ -34,7 +34,7 @@ function SubdivisionForm({addNewSubdivision}) {
     .then(response => response.json())
     .then(addNewSubdivision)    
     setSubdivisionData({
-    image:"",
+    image_url:"",
     name:"",
     overview:"",
     })
@@ -48,7 +48,7 @@ function SubdivisionForm({addNewSubdivision}) {
       <form onSubmit={handleAdd}>
         <label>
             Upload Image:
-            <input type="text" name="image" value={subdivisionData.image} onChange={submitForm}/>
+            <input type="text" name="image_url" value={subdivisionData.image_url} onChange={submitForm}/>
         </label>
         <label>
             Community Name:

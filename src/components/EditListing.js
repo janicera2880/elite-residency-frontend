@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {useParams, useNavigate} from "react-router-dom"
 
 
-function EditListing({listings, onDeleteListing, onUpdateListing}) {
+function EditListing({listings, onDeleteListing, handleUpdateListing}) {
 
     const { id } = useParams()
     const navigate = useNavigate()
@@ -22,22 +22,23 @@ function EditListing({listings, onDeleteListing, onUpdateListing}) {
     setIsClicked(() => !isClicked)
   }
 
-    const handleUpdateListing = (e) => {
+    const onUpdate = (e) => {
     e.preventDefault()
+    
     fetch(`http://localhost:9292/listings/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        "list_price": list_price,
+        "list_price":updatedPrice,
         "active" : true
        
       })
     })
       .then(r => r.json())
       .then(updatedListing => {
-        onUpdateListing(updatedListing)
+        handleUpdateListing(updatedListing)
         toggleIsClicked()
 
       })
@@ -79,7 +80,7 @@ function EditListing({listings, onDeleteListing, onUpdateListing}) {
         <button onClick={toggleAvailable} className="primary">Sold</button>
       )}
       {isClicked ? (
-        <form onSubmit={handleUpdateListing}>
+        <form onSubmit={onUpdate}>
           <label>
           <input type="number" name="updatedPrice" placeholder="Enter New List Price" value={updatedPrice} onChange={(event) => setUpdatedPrice(event.target.value)} /> 
           </label>
