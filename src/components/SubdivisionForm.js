@@ -3,16 +3,16 @@ import { useNavigate } from "react-router-dom";
 
 
 function SubdivisionForm({addNewSubdivision}) {
+
   const navigate = useNavigate();
   const [subdivisionData, setSubdivisionData] = useState({
     image:"",
     name:"",
-    communityType:"",
     overview:"",
   })
 
 
-  function submitAdd(event){
+  function submitForm(event){
     setSubdivisionData({
       ...subdivisionData, [event.target.name]:event.target.value
     })
@@ -22,13 +22,12 @@ function SubdivisionForm({addNewSubdivision}) {
     event.preventDefault()
     //console.log(subdivisionData);
 
-    fetch("http://localhost:9292/subdivision", {
+    fetch("http://localhost:9292/subdivisions", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
         "image":subdivisionData.image,
         "name":subdivisionData.name,
-        "community_type": subdivisionData.communityType,
         "overview": subdivisionData.overview,
       })
     })
@@ -37,10 +36,9 @@ function SubdivisionForm({addNewSubdivision}) {
     setSubdivisionData({
     image:"",
     name:"",
-    communityType:"",
     overview:"",
     })
-    console.log(subdivisionData);
+    //console.log(subdivisionData);
 
     navigate("/subdivisions")
   }
@@ -50,19 +48,15 @@ function SubdivisionForm({addNewSubdivision}) {
       <form onSubmit={handleAdd}>
         <label>
             Upload Image:
-            <input type="text" name="image" value={subdivisionData.image} onChange={submitAdd}/>
+            <input type="text" name="image" value={subdivisionData.image} onChange={submitForm}/>
         </label>
         <label>
             Community Name:
-            <input type="text" name="name" value={subdivisionData.name} onChange={submitAdd} />
-        </label>
-        <label>
-            Community Type:
-            <input type="text" name="communityType" value={subdivisionData.communityType} onChange={submitAdd} />
+            <input type="text" name="name" value={subdivisionData.name} onChange={submitForm} />
         </label>
         <label>
             Highlights/Amenities:
-            <input type="text" name="overview" value={subdivisionData.overview} onChange={submitAdd} />
+            <input type="text" name="overview" value={subdivisionData.overview} onChange={submitForm} />
         </label>                
         <button type="submit"style={{fontWeight: "bold"}}>Click Submit</button>
       </form>
