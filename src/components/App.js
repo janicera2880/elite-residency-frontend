@@ -17,17 +17,18 @@ function App(){
   const [subdivisions, setsubdivisions] = useState([]);
 
  
-
+//Fetches subdivisions data and listings in each subdivision... the subdivision state is included in the dependency array, therefore whenever subdivision state is updated,
+//setSubdivision useEfect callback function is triggered and the value of dependency array is rendered
   useEffect(() => {
     fetch("http://localhost:9292/subdivisions")
     .then(response => response.json())
     .then(data => setsubdivisions(data))
     
-  }, [])
+  }, [subdivisions])
 
   function addNewSubdivision(newSubdivision){  
-    const updatedSubdivision = [subdivisions, ...newSubdivision]
-    setsubdivisions(updatedSubdivision)
+    //const updatedSubdivision = [subdivisions, ...newSubdivision]
+    setsubdivisions([...subdivisions, newSubdivision]);
   }
 
   useEffect(() => {
@@ -45,13 +46,40 @@ function App(){
    
   }
 
-  function handleDeleteListing(id) {
-    const updatedListingArray = listings.filter((listing) => listing.id !== id);
-    setListings(updatedListingArray);
+  function handleDeleteListing(deletedListing) {
+    //console.log(deletedListing)
+    
+    const deletedSubdivisionArray = subdivisions.map((subdivision) => {
+      if(subdivision.id === deletedListing.subdivision_id) {
+        return {
+          ...subdivision,
+          listings: subdivision.listings.map((listing) => {
+            if (listing.id === deletedListing.id) {
+              return deletedListing;
+            } else {
+              return listing;
+            }
+          })
+        }
+      } else {
+        return subdivision
+      }
+    })
+    const deletedListingArray = listings.map((listing) => {
+      if (listing.id === deletedListing.id) {
+        return deletedListing;
+      } else {
+        return listing;
+      }
+    });
+    setsubdivisions(deletedSubdivisionArray);
+    setListings(deletedListingArray);
   }
 
+   
   function handleUpdateListing(updatedListing) {
-    console.log(updatedListing)
+    //console.log(updatedListing)
+
     const updatedSubdivisionArray = subdivisions.map((subdivision) => {
       if(subdivision.id === updatedListing.subdivision_id) {
         return {

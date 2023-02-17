@@ -4,6 +4,7 @@ import Filter from "./Filter";
 
 
 
+
 function ListingPage({listings}) {
   //console.log(listings)
   
@@ -38,6 +39,7 @@ function ListingPage({listings}) {
         lot_size={listings.lot_size}
         year_built={listings.year_built}
         pool={listings.pool}
+        
         
 
         />

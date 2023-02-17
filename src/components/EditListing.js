@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {useParams, useNavigate} from "react-router-dom"
 
 
-function EditListing({listings, onDeleteListing, handleUpdateListing}) {
+function EditListing({listings, HandleDeleteListing, handleUpdateListing}) {
 
     const { id } = useParams()
     const navigate = useNavigate()
@@ -10,13 +10,11 @@ function EditListing({listings, onDeleteListing, handleUpdateListing}) {
 
     const {image_url, active, list_price, storey, bedroom, bathroom, architecture_style, garage, lot_size, building_size, year_built}= listings.find(listing => listing.id === Number(id))
 
-    const [available, setAvailable] = useState(true);
+    
     const [updatedPrice, setUpdatedPrice] = useState(list_price);
     const [isClicked, setIsClicked] = useState(false);
   
-    const toggleAvailable = () => {
-      setAvailable(() => !available)
-  }
+    
 
     const toggleIsClicked = () => {
     setIsClicked(() => !isClicked)
@@ -32,7 +30,7 @@ function EditListing({listings, onDeleteListing, handleUpdateListing}) {
       },
       body: JSON.stringify({
         "list_price":updatedPrice,
-        "active" : true
+        
        
       })
     })
@@ -45,18 +43,21 @@ function EditListing({listings, onDeleteListing, handleUpdateListing}) {
       navigate("/listings")
 
   }
+  function handleDeleteClick(){
+    onDeleteListing(id)
+  } 
 
-  const handleDeleteListing = () => {
-    fetch(`http://localhost:9292/listings/${id}`, {
+  function onDeleteListing(id){
+    fetch(`http://localhost:9292/listings/${id}`,{
       method: "DELETE",
     })
-      .then(r => r.json())
-      .then((deletedListing) => onDeleteListing(deletedListing))
-      navigate("/listings")
-  }
-
-
-
+    .then(response => response.json())
+    .then(() => {
+      const deletedListing = listings.find((listing) => listing.id === Number(id))
+      HandleDeleteListing(deletedListing)
+    })
+    navigate("/listings")
+}
 
 
   return (
@@ -73,12 +74,8 @@ function EditListing({listings, onDeleteListing, handleUpdateListing}) {
       <p>{building_size} Sqft | {lot_size} Lot Sqft</p>
       <p>🏠Design: {architecture_style} | Year Built : {year_built}</p>
 
-      <button onClick={toggleIsClicked} className="primary">Edit List Price</button>
-      {available ? (
-        <button onClick={toggleAvailable} className="primary">Continue To Show</button>
-      ) : (
-        <button onClick={toggleAvailable} className="primary">Sold</button>
-      )}
+      <button onClick={toggleIsClicked} className="primary">Edit Listing Price</button>
+     
       {isClicked ? (
         <form onSubmit={onUpdate}>
           <label>
@@ -87,7 +84,7 @@ function EditListing({listings, onDeleteListing, handleUpdateListing}) {
           <button className="primary"type="submit">Update ✅</button>
         </form>
       ) : null}
-      <button className="primary"onClick={handleDeleteListing}>Delete</button>
+      <button className="primary"onClick={handleDeleteClick}>Delete Property</button>
       
     </div>
   );
