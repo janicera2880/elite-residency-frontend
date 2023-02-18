@@ -53,7 +53,7 @@ function App(){
       if(subdivision.id === deletedListing.subdivision_id) {
         return {
           ...subdivision,
-          listings: subdivision.listings.map((listing) => {
+          listings: subdivision.listings.filter((listing) => {
             if (listing.id === deletedListing.id) {
               return deletedListing;
             } else {
@@ -65,7 +65,7 @@ function App(){
         return subdivision
       }
     })
-    const deletedListingArray = listings.map((listing) => {
+    const newListingArray = listings.map((listing) => {
       if (listing.id === deletedListing.id) {
         return deletedListing;
       } else {
@@ -73,7 +73,7 @@ function App(){
       }
     });
     setsubdivisions(deletedSubdivisionArray);
-    setListings(deletedListingArray);
+    setListings(newListingArray);
   }
 
    

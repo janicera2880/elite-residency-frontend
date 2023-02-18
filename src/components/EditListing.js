@@ -5,10 +5,11 @@ import {useParams, useNavigate} from "react-router-dom"
 function EditListing({listings, HandleDeleteListing, handleUpdateListing}) {
 
     const { id } = useParams()
+    
     const navigate = useNavigate()
    
 
-    const {image_url, active, list_price, storey, bedroom, bathroom, architecture_style, garage, lot_size, building_size, year_built}= listings.find(listing => listing.id === Number(id))
+    const { image_url, list_price, storey, bedroom, bathroom, architecture_style, garage, lot_size, building_size, year_built }= listings.find(listing => listing.id === Number(id))
 
     
     const [updatedPrice, setUpdatedPrice] = useState(list_price);
@@ -43,18 +44,17 @@ function EditListing({listings, HandleDeleteListing, handleUpdateListing}) {
       navigate("/listings")
 
   }
-  function handleDeleteClick(){
-    onDeleteListing(id)
-  } 
+ 
 
   function onDeleteListing(id){
     fetch(`http://localhost:9292/listings/${id}`,{
       method: "DELETE",
     })
     .then(response => response.json())
-    .then(() => {
-      const deletedListing = listings.find((listing) => listing.id === Number(id))
+   .then(() => {
+    const deletedListing = listings.find((listing) => listing.id === Number(id))
       HandleDeleteListing(deletedListing)
+      //.then((deletedListing) => HandleDeleteListing(deletedListing));
     })
     navigate("/listings")
 }
@@ -65,11 +65,10 @@ function EditListing({listings, HandleDeleteListing, handleUpdateListing}) {
     <div className="listing-edit">
 
         
-     
+  
 
       <img src={image_url} width="600" height="400" alt={image_url}/>
       <p>Listed Price : $ {list_price}.00</p>
-      <p>Status : {active? "Active" : "Inactive"}</p>
       <p>{storey} Storey | {bedroom} Beds | {bathroom} Baths | {garage} Garage</p>
       <p>{building_size} Sqft | {lot_size} Lot Sqft</p>
       <p>🏠Design: {architecture_style} | Year Built : {year_built}</p>
@@ -84,7 +83,7 @@ function EditListing({listings, HandleDeleteListing, handleUpdateListing}) {
           <button className="primary"type="submit">Update ✅</button>
         </form>
       ) : null}
-      <button className="primary"onClick={handleDeleteClick}>Delete Property</button>
+      <button className="primary"onClick={onDeleteListing}>Delete Property</button>
       
     </div>
   );
