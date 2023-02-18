@@ -1,6 +1,6 @@
 # ELITE RESIDENCY
 
-[![video](https://j.gifs.com/jY98gz.gif)
+![video](https://j.gifs.com/jY98gz.gif)
 
 
 
@@ -28,8 +28,7 @@ Check out my blog post recap about my project here. [My First Full Stack Project
 
 Load these URL to your browser:
 
- Fork and clone to your directory [Github Front-End Repo](https://github.com/janicera2880/elite-residency-frontend) and
-Fork and clone [Github Back-End Repo](https://github.com/janicera2880/elite-residency-backend) to a separate directory.
+Fork and clone to your directory [Github Front-End Repo](https://github.com/janicera2880/elite-residency-frontend) and [Github Back-End Repo](https://github.com/janicera2880/elite-residency-backend) both to a separate directory.
 
 ## Usage
 
