@@ -6,7 +6,6 @@ import Header from "./Header";
 import ListingForm from "./ListingForm";
 import Home from "./Home";
 import SubdivisionList from "./SubdivisionListings";
-import Footer from "./Footer";
 import ListingPage from "./ListingPage";
 import EditListing from "./EditListing";
 
@@ -24,7 +23,7 @@ function App(){
     .then(response => response.json())
     .then(data => setsubdivisions(data))
     
-  }, [subdivisions])
+  }, [listings])
 
   function addNewSubdivision(newSubdivision){  
     //const updatedSubdivision = [subdivisions, ...newSubdivision]
@@ -36,7 +35,7 @@ function App(){
     .then(response => response.json())
     .then(data => setListings(data))
     
-  }, [])
+  }, [listings])
   
  
 
@@ -47,10 +46,15 @@ function App(){
   }
 
   function handleDeleteListing(deletedListing) {
-    //console.log(deletedListing)
+    console.log(deletedListing)
+    /*const deletedListing = listings.filter(listing => {
+      return listing.id !== id
+    })
+    setListings(deletedListing)
+  }*/
     
     const deletedSubdivisionArray = subdivisions.map((subdivision) => {
-      if(subdivision.id === deletedListing.subdivision_id) {
+     if(subdivision.id === deletedListing.subdivision_id) {
         return {
           ...subdivision,
           listings: subdivision.listings.filter((listing) => {
@@ -78,7 +82,7 @@ function App(){
 
    
   function handleUpdateListing(updatedListing) {
-    //console.log(updatedListing)
+    console.log(updatedListing)
 
     const updatedSubdivisionArray = subdivisions.map((subdivision) => {
       if(subdivision.id === updatedListing.subdivision_id) {
@@ -139,7 +143,7 @@ return (
               element={<Home addNewSubdivision={addNewSubdivision}/>}/>            
           
         </Routes>    
-        <Footer />  
+        
       </div>
 )
 };

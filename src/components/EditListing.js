@@ -9,11 +9,12 @@ function EditListing({listings, HandleDeleteListing, handleUpdateListing}) {
     const navigate = useNavigate()
    
 
-    const { image_url, list_price, storey, bedroom, bathroom, architecture_style, garage, lot_size, building_size, year_built }= listings.find(listing => listing.id === Number(id))
+    const { image_url, active, list_price, storey, bedroom, bathroom, architecture_style, garage, lot_size, building_size, year_built }= listings.find(listing => listing.id === Number(id))
 
     
     const [updatedPrice, setUpdatedPrice] = useState(list_price);
     const [isClicked, setIsClicked] = useState(false);
+    
   
     
 
@@ -32,6 +33,7 @@ function EditListing({listings, HandleDeleteListing, handleUpdateListing}) {
       body: JSON.stringify({
         "list_price":updatedPrice,
         
+        
        
       })
     })
@@ -47,12 +49,12 @@ function EditListing({listings, HandleDeleteListing, handleUpdateListing}) {
  
 
   function onDeleteListing(id){
-    fetch(`http://localhost:9292/listings/${id}`,{
+    fetch(`http://localhost:9292/listings/${id}`, {
       method: "DELETE",
     })
     .then(response => response.json())
    .then(() => {
-    const deletedListing = listings.find((listing) => listing.id === Number(id))
+    const deletedListing = listings.filter((listing) => listing.id !== id);
       HandleDeleteListing(deletedListing)
       //.then((deletedListing) => HandleDeleteListing(deletedListing));
     })
@@ -62,12 +64,13 @@ function EditListing({listings, HandleDeleteListing, handleUpdateListing}) {
 
   return (
 
-    <div className="listing-edit">
+    <div className="listing-edit" key={listings.id}>
 
         
   
 
       <img src={image_url} width="600" height="400" alt={image_url}/>
+      <p>Status : {active? "Active" : "Inactive"}</p>
       <p>Listed Price : $ {list_price}.00</p>
       <p>{storey} Storey | {bedroom} Beds | {bathroom} Baths | {garage} Garage</p>
       <p>{building_size} Sqft | {lot_size} Lot Sqft</p>

@@ -13,8 +13,12 @@ function SubdivisionListings({ subdivisions }) {
   const showSubdivision = subdivisions.find(({ id }) => id === parseInt(params.id));
   
 
-  const goBack = () => {
-    navigate(-1);
+  const goNavigate = () => {
+    navigate("/listing_form");
+  }
+
+  const goNext = () => {
+    navigate("/");
   }
  
   let viewListings;
@@ -27,7 +31,7 @@ function SubdivisionListings({ subdivisions }) {
       />
     ));
       
-   
+    
   }
 
  
@@ -42,7 +46,8 @@ function SubdivisionListings({ subdivisions }) {
       <br></br>
       <br></br>
       
-      <button className="backBtn"onClick={goBack}>Previous Page</button>	
+      <button className="backBtn"onClick={goNavigate}> Add New Listing     &raquo;</button>	
+      <button className="nxtBtn"onClick={goNext}> &laquo; Add New Subdivision </button>	
     </div>
   	
   )
