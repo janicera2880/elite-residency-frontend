@@ -1,71 +1,71 @@
-# Getting Started with Create React App
-Elite Residency 
+# ELITE RESIDENCY
+
+[![video](https://j.gifs.com/jY98gz.gif)
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+### Table Of Contents
 
+[Description](#description) 
 
-In the project directory, you can run:
+[Installation](#installation) 
 
-### `npm start`
+[Usage](#usage) 
 
-Runs the app in the development mode.
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[Contributing](#contributing) 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[License](#license) 
 
-### `npm test`
+## Description 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I created a real estate app that allows prospective buyers, sellers, and investors to search information filtered by price, location, square footage, architecture design, number of bedrooms or bathrooms, etc. Users will have the ability to manage listings by adding new properties or subdivisions, tracking availability, deleting inactive listings, and changing higher or lower listing prices.  I always have interest in the Real Estate business, it is a market that will keep growing and as an aspiring Web Developer, I wanted to help users find their perfect home with a tool that is effective and user-friendly.
 
-### `npm run build`
+Check out my blog post recap about my project here. [My First Full Stack Project-](https://dev.to/janicera2880/my-first-full-stack-project-elite-residency-560n)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Load these URL to your browser:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ Fork and clone to your directory [Github Front-End Repo](https://github.com/janicera2880/elite-residency-frontend) and
+Fork and clone [Github Back-End Repo](https://github.com/janicera2880/elite-residency-backend) to a separate directory.
 
-### `npm run eject`
+## Usage
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### In The Back-End Directory
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Run this command:
+```bash
+$ bundle install
+```
+Run the server with:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+$ bundle exec rake server
+```
+### In The Front-End Directory
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Open the App to your browser with command:
+```bash
+$ npm start
+```
+## Contributing 
 
-## Learn More
+All types of contributions are encouraged and valued through pull request.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* Reporting An Issue
+* Submitting A Fix
+* Proposing New Features
+* Maintenance
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Please make sure to update tests as appropriate.
 
-### Code Splitting
+## Credit
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+My company logo is created free with [Looka](https://looka.com/logo-maker/?gclid=Cj0KCQiAi8KfBhCuARIsADp-A57pP3LBQxgu1It9qfDLe74Lndxx5YGXRM-cPF0asvW2qXNapH--X8QaAroxEALw_wcB) and images from [Zillow](https://www.zillow.com/).
 
-### Analyzing the Bundle Size
+## License 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+[MIT](“https://github.com/janicera2880/fixture-catalog/blob/main/LICENSE”)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
