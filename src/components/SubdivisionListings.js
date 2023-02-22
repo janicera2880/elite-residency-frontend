@@ -24,10 +24,12 @@ function SubdivisionListings({ subdivisions }) {
   let viewListings;
   if (showSubdivision) {
     viewListings = showSubdivision.listings.map((listings) => (
+
+    
       <ListingCard
         key={listings.id}
         listings={listings}
-        
+       
       />
     ));
       
@@ -38,9 +40,12 @@ function SubdivisionListings({ subdivisions }) {
   return (
     <div className="subdivision-list">
      
-
+    
      <img id="logo" src={Logo} alt="logo" width="100" height="200" className="center"/>
-      {viewListings}
+
+    {viewListings}
+      
+      
       <br></br>
       <br></br>
       <br></br>

@@ -1,10 +1,10 @@
 import React, {useState} from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 
-function ListingForm({id, newListing }) {
+function ListingForm({newListing }) {
   const navigate = useNavigate();
-  const subdivisionId = parseInt(id);
+  const params = useParams;
 
   const [formData, setFormData] = useState({
     image_url: "",
@@ -17,7 +17,7 @@ function ListingForm({id, newListing }) {
     building_size: "",
     lot_size: "",
     year_built: "",
-    subdivisionId: subdivisionId,
+    subdivision_id: params.id,
     
   })
 
@@ -45,7 +45,7 @@ function ListingForm({id, newListing }) {
       building_size: formData.building_size,
       lot_size: formData.lot_size,
       year_built: formData.year_built,
-      subdivisionId: subdivisionId,
+      subdivision_id: params.id,
       
         
       })
@@ -64,7 +64,7 @@ function ListingForm({id, newListing }) {
         building_size: "",
         lot_size: "",
         year_built: "",
-        subdivisionId: subdivisionId,
+        subdivision_id: params.id,
        
         
     })

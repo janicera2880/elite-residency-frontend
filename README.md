@@ -28,7 +28,7 @@ Check out my blog post recap about my project here. [My First Full Stack Project
 
 Load these URL to your browser:
 
-Fork and clone to your directory [Github Front-End Repo](https://github.com/janicera2880/elite-residency-frontend) and [Github Back-End Repo](https://github.com/janicera2880/elite-residency-backend) both to a separate directory.
+Fork and clone [Github Front-End Repo](https://github.com/janicera2880/elite-residency-frontend) and [Github Back-End Repo](https://github.com/janicera2880/elite-residency-backend) both to a separate folder and cd each to different windows.
 
 ## Usage
 
@@ -43,6 +43,11 @@ Run the server with:
 ```bash
 $ bundle exec rake server
 ```
+
+This will run your server on port
+[http://localhost:9292](http://localhost:9292).
+
+
 ### In The Front-End Directory
 
 Open the App to your browser with command:

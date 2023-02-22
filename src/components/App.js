@@ -23,11 +23,11 @@ function App(){
     .then(response => response.json())
     .then(data => setsubdivisions(data))
     
-  }, [listings])
+  }, [])
 
   function addNewSubdivision(newSubdivision){  
-    //const updatedSubdivision = [subdivisions, ...newSubdivision]
-    setsubdivisions([...subdivisions, newSubdivision]);
+    const updatedSubdivision = [newSubdivision, ...subdivisions]
+    setsubdivisions(updatedSubdivision);
   }
 
   useEffect(() => {
@@ -35,7 +35,7 @@ function App(){
     .then(response => response.json())
     .then(data => setListings(data))
     
-  }, [listings])
+  }, [])
   
  
 
@@ -45,40 +45,14 @@ function App(){
    
   }
 
-  function handleDeleteListing(deletedListing) {
-    console.log(deletedListing)
-    /*const deletedListing = listings.filter(listing => {
-      return listing.id !== id
+  function handleDeleteListing(deletedListing){
+   // console.log(deletedListing)
+    const newArrayListings = listings.filter(listing => {
+      return listing.id !== deletedListing.id
     })
-    setListings(deletedListing)
-  }*/
-    
-    const deletedSubdivisionArray = subdivisions.map((subdivision) => {
-     if(subdivision.id === deletedListing.subdivision_id) {
-        return {
-          ...subdivision,
-          listings: subdivision.listings.filter((listing) => {
-            if (listing.id === deletedListing.id) {
-              return deletedListing;
-            } else {
-              return listing;
-            }
-          })
-        }
-      } else {
-        return subdivision
-      }
-    })
-    const newListingArray = listings.map((listing) => {
-      if (listing.id === deletedListing.id) {
-        return deletedListing;
-      } else {
-        return listing;
-      }
-    });
-    setsubdivisions(deletedSubdivisionArray);
-    setListings(newListingArray);
+    setListings(newArrayListings)
   }
+   
 
    
   function handleUpdateListing(updatedListing) {

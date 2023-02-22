@@ -3,7 +3,7 @@ import {useParams, useNavigate} from "react-router-dom"
 
 
 function EditListing({listings, HandleDeleteListing, handleUpdateListing}) {
-
+   
     const { id } = useParams()
     
     const navigate = useNavigate()
@@ -25,7 +25,7 @@ function EditListing({listings, HandleDeleteListing, handleUpdateListing}) {
     const onUpdate = (e) => {
     e.preventDefault()
     
-    fetch(`http://localhost:9292/listings/${id}`, {
+    fetch(`http://localhost:9292/listings/${id}`,{
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -49,22 +49,22 @@ function EditListing({listings, HandleDeleteListing, handleUpdateListing}) {
  
 
   function onDeleteListing(id){
-    fetch(`http://localhost:9292/listings/${id}`, {
+    fetch(`http://localhost:9292/listings/${id}`,{
       method: "DELETE",
     })
     .then(response => response.json())
    .then(() => {
-    const deletedListing = listings.filter((listing) => listing.id !== id);
+   
+    const deletedListing = listings.find((listing) => listing.id === Number(id))
       HandleDeleteListing(deletedListing)
-      //.then((deletedListing) => HandleDeleteListing(deletedListing));
+      
     })
     navigate("/listings")
 }
 
-
   return (
 
-    <div className="listing-edit" key={listings.id}>
+    <li className="listing-edit" key={listings.id}>
 
         
   
@@ -88,7 +88,7 @@ function EditListing({listings, HandleDeleteListing, handleUpdateListing}) {
       ) : null}
       <button className="primary"onClick={onDeleteListing}>Delete Property</button>
       
-    </div>
+    </li>
   );
 }
 
