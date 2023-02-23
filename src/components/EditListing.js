@@ -2,14 +2,14 @@ import React, {useState} from "react";
 import {useParams, useNavigate} from "react-router-dom"
 
 
-function EditListing({listings, HandleDeleteListing, handleUpdateListing}) {
+function EditListing({listings, handleDeleteListing, handleUpdateListing}) {
    
     const { id } = useParams()
     
     const navigate = useNavigate()
    
-
-    const { image_url, active, list_price, storey, bedroom, bathroom, architecture_style, garage, lot_size, building_size, year_built }= listings.find(listing => listing.id === Number(id))
+    const listing = listings.find(listing => listing.id === Number(id))
+    const {image_url, active, list_price, storey, bedroom, bathroom, architecture_style, garage, lot_size, building_size, year_built }= listings
 
     
     const [updatedPrice, setUpdatedPrice] = useState(list_price);
@@ -47,16 +47,17 @@ function EditListing({listings, HandleDeleteListing, handleUpdateListing}) {
 
   }
  
-
-  function onDeleteListing(id){
+   // function thatnfires a button click to remove a listing
+  function onDeleteListing(e){
+    console.log(id)
     fetch(`http://localhost:9292/listings/${id}`,{
       method: "DELETE",
     })
     .then(response => response.json())
    .then(() => {
-   
-    const deletedListing = listings.find((listing) => listing.id === Number(id))
-      HandleDeleteListing(deletedListing)
+   console.log(id)
+    
+      handleDeleteListing(listing)
       
     })
     navigate("/listings")
