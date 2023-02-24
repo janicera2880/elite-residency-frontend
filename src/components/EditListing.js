@@ -9,14 +9,12 @@ function EditListing({listings, handleDeleteListing, handleUpdateListing}) {
     const navigate = useNavigate()
    
     const listing = listings.find(listing => listing.id === Number(id))
-    const {image_url, active, list_price, storey, bedroom, bathroom, architecture_style, garage, lot_size, building_size, year_built }= listings
+    const {image_url, list_price, storey, bedroom, bathroom, architecture_style, garage, lot_size, building_size, year_built }= listings
 
     
     const [updatedPrice, setUpdatedPrice] = useState(list_price);
     const [isClicked, setIsClicked] = useState(false);
-    
-  
-    
+   
 
     const toggleIsClicked = () => {
     setIsClicked(() => !isClicked)
@@ -33,7 +31,6 @@ function EditListing({listings, handleDeleteListing, handleUpdateListing}) {
       body: JSON.stringify({
         "list_price":updatedPrice,
         
-        
        
       })
     })
@@ -41,15 +38,15 @@ function EditListing({listings, handleDeleteListing, handleUpdateListing}) {
       .then(updatedListing => {
         handleUpdateListing(updatedListing)
         toggleIsClicked()
-
+        
       })
       navigate("/listings")
 
   }
  
    // function thatnfires a button click to remove a listing
-  function onDeleteListing(e){
-    console.log(id)
+  function onDeleteListing(_e){
+    //console.log(id)
     fetch(`http://localhost:9292/listings/${id}`,{
       method: "DELETE",
     })
@@ -65,17 +62,15 @@ function EditListing({listings, handleDeleteListing, handleUpdateListing}) {
 
   return (
 
-    <li className="listing-edit" key={listings.id}>
+    <div className="listing-edit" >
 
-        
-  
-
-      <img src={image_url} width="600" height="400" alt={image_url}/>
-      <p>Status : {active? "Active" : "Inactive"}</p>
+    
+      <img src={image_url} width="500" height="400" alt={image_url}/>
       <p>Listed Price : $ {list_price}.00</p>
       <p>{storey} Storey | {bedroom} Beds | {bathroom} Baths | {garage} Garage</p>
       <p>{building_size} Sqft | {lot_size} Lot Sqft</p>
       <p>🏠Design: {architecture_style} | Year Built : {year_built}</p>
+      
 
       <button onClick={toggleIsClicked} className="primary">Edit Listing Price</button>
      
@@ -84,12 +79,13 @@ function EditListing({listings, handleDeleteListing, handleUpdateListing}) {
           <label>
           <input type="number" name="updatedPrice" placeholder="Enter New List Price" value={updatedPrice} onChange={(event) => setUpdatedPrice(event.target.value)} /> 
           </label>
+         
           <button className="primary"type="submit">Update ✅</button>
         </form>
       ) : null}
       <button className="primary"onClick={onDeleteListing}>Delete Property</button>
       
-    </li>
+    </div>
   );
 }
 

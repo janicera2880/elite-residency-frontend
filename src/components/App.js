@@ -46,7 +46,7 @@ function App(){
   }
 
   function handleDeleteListing(deletedListing){
-   console.log(deletedListing)
+   //console.log(deletedListing)
     const newArrayListings = listings.filter(listing => {
       // return the rest of listings that don't match the listing we are deleting
       return listing.id !== deletedListing.id
@@ -54,6 +54,7 @@ function App(){
     // newArrayListings returns a new array - so now we are setting the listings to the new array
     const updatedSubdivisionArray = subdivisions.map((subdivision) => {
       if(subdivision.id === deletedListing.subdivision_id) {
+        //make sure also deletes the listing in the subdivision
         return {
           ...subdivision,
           listings: subdivision.listings.filter((listing) => listing.id !== deletedListing.id )
